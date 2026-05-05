@@ -1,6 +1,6 @@
 # KNOCH-004 — Custom Cursor & Film-Grain Overlay
 
-## Status: IN REVIEW
+## Status: QA PASSED
 ## Priority: P1 (high)
 ## Epic: EPIC-001 — Foundation
 
@@ -11,14 +11,14 @@ Custom Cursor with Magnetic Grow State and CSS Film-Grain Overlay
 Replace the browser cursor with a custom amber-ring cursor that uses GSAP `quickTo` for smooth lag-behind tracking. On hover over interactive elements (links, cards, tiles, buttons), the cursor grows to 80px with a translucent fill. Also implement the CSS SVG film-grain noise overlay that sits on the hero and pinned-frame backgrounds.
 
 ## Acceptance Criteria
-- [ ] `.cursor` element: `position: fixed; 24×24px; border: 1px solid var(--amber); border-radius: 50%; pointer-events: none; z-index: var(--z-cursor); mix-blend-mode: difference`
-- [ ] Inner 2px amber dot via `::before` pseudo-element
-- [ ] Mouse position tracked with `gsap.quickTo(cursor, "x", { duration: 0.35, ease: "power3" })` separately for x and y
-- [ ] `.cursor.grow` state: `80×80px`, `background: rgba(232,162,58,0.08)` — triggered on `mouseenter` for all `a`, `.reel-card`, `.tile`, `.cta .button` elements
-- [ ] Cursor hidden on mobile (`≤800px`): `body { cursor: auto }` + `.cursor { display: none }`
-- [ ] Film-grain overlay: inline SVG `feTurbulence` filter applied as `background-image` on `.hero-bg::after` and `.pinned-frame .overlay` — `baseFrequency: 0.9`, `numOctaves: 2`, `opacity: 0.15–0.18`
-- [ ] Grain overlay does not re-render on scroll (static SVG data URI, not canvas)
-- [ ] Cursor becomes `cursor: pointer` fallback if JS fails (progressive enhancement)
+- [x] `.cursor` element: `position: fixed; 24×24px; border: 1px solid var(--amber); border-radius: 50%; pointer-events: none; z-index: var(--z-cursor); mix-blend-mode: difference`
+- [x] Inner 2px amber dot via `::before` pseudo-element
+- [x] Mouse position tracked with `gsap.quickTo(cursor, "x", { duration: 0.35, ease: "power3" })` separately for x and y
+- [x] `.cursor.grow` state: `80×80px`, `background: rgba(232,162,58,0.08)` — triggered on `mouseenter` for all `a`, `.reel-card`, `.tile`, `.cta .button` elements
+- [x] Cursor hidden on mobile (`≤800px`): `body { cursor: auto }` + `.cursor { display: none }`
+- [x] Film-grain overlay: inline SVG `feTurbulence` filter applied as `background-image` on `.hero-bg::after` and `.pinned-frame .overlay` — `baseFrequency: 0.9`, `numOctaves: 2`, `opacity: 0.15–0.18`
+- [x] Grain overlay does not re-render on scroll (static SVG data URI, not canvas)
+- [x] Cursor becomes `cursor: pointer` fallback if JS fails (progressive enhancement)
 
 ## Design Notes
 The cursor uses `mix-blend-mode: difference` so it inverts against both light and dark backgrounds identically to the chrome nav.
