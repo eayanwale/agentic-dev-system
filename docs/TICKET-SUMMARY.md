@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-05 | Total tickets: 21 | Open: 16 | In progress: 1 | In review: 0 | Done: 4
+> Last updated: 2026-05-05 | Total tickets: 21 | Open: 16 | In progress: 0 | In review: 1 | Done: 4
 
 ---
 
@@ -28,7 +28,7 @@ These must be completed before any other ticket can be built. No component shoul
 | [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `✅` | `feature/KNOCH-002-design-tokens` | QA PASSED — merged to test |
 | [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `✅` | `feature/KNOCH-016-lenis-smooth-scroll` | QA PASSED — merged to test |
 | [KNOCH-003](tickets/KNOCH-003.md) | Cinematic Chrome Navigation + Timecode Bar | `✅` | `feature/KNOCH-003-chrome-navigation` | QA PASSED — merged to test |
-| [KNOCH-004](tickets/KNOCH-004.md) | Custom Cursor & Film-Grain Overlay | `🔵` | `feature/KNOCH-004-cursor-film-grain` | Desktop only |
+| [KNOCH-004](tickets/KNOCH-004.md) | Custom Cursor & Film-Grain Overlay | `🔵` | `feature/KNOCH-004-cursor-film-grain` | IN REVIEW — PR #5 |
 
 ---
 
@@ -142,6 +142,21 @@ Run in this exact order: perf first (changes markup), then mobile (tests perf ch
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-05 — KNOCH-004 implementation complete — PR #5 open
+
+**Action:** Implemented and PR opened dev → test
+**Tickets affected:** KNOCH-004
+**Reason:** Builder agent completed the custom cursor + film-grain overlay layer
+**Changes:**
+- KNOCH-004: Status changed TODO → IN PROGRESS → MERGED TO DEV → IN REVIEW
+- Branch `feature/KNOCH-004-cursor-film-grain` created, implemented, merged into `dev`
+- PR #5 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/5
+- Files delivered: `src/css/cursor.css` (cursor ring + grow state + .grain::after film-grain overlay), `src/js/cursor.js` (GSAP quickTo tracking + grow/shrink), `src/index.html` (cursor element + section stubs with .grain class), `src/js/main.js` (initCursor call)
+- Build: 16 modules, 4.53 kB CSS / 1.67 kB gz, 133.78 kB JS / 50.23 kB gz, 79ms
+**Requested by:** Builder agent
 
 ---
 
