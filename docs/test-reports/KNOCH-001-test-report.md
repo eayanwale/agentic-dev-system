@@ -220,3 +220,74 @@ Create two stub files:
 ```
 
 Once these two files exist, `npm run build` should complete successfully and emit `dist/` with hashed assets.
+
+---
+
+## Re-test — 2026-05-05
+
+| Field      | Value                     |
+|------------|---------------------------|
+| Date       | 2026-05-05                |
+| Tester     | Tester Agent              |
+| Branch     | dev                       |
+| **Result** | **PASSED**                |
+
+### What Was Fixed
+
+Both blocker and low-severity issues from the original test run were resolved by the builder:
+
+- **ISSUE-001 (Blocker):** `src/js/main.js` created as an empty stub file. Vite treats an empty `.js` file as a valid ES module — no parse error, no unresolved import. Build now completes.
+- **ISSUE-002 (Low):** `src/css/global.css` created as an empty stub file. The `<link rel="stylesheet">` in `index.html` now points to an existing file; no 404 on page load.
+
+### Build Output Verified
+
+Command run: `npm run build`
+
+```
+> knoch-portfolio@0.1.0 build
+> vite build
+
+vite v8.0.10 building client environment for production...
+transforming... ✓ 5 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/src/index.html            2.41 kB │ gzip: 1.19 kB
+dist/assets/main-x1XGuNl0.css  0.00 kB │ gzip: 0.02 kB
+dist/assets/main-XZjvl7BG.js   0.69 kB │ gzip: 0.39 kB
+
+✓ built in 33ms
+```
+
+`dist/` emitted with hashed asset filenames (`main-x1XGuNl0.css`, `main-XZjvl7BG.js`) — AC-4 confirmed PASS.
+
+### Full Criterion Checklist
+
+| # | Acceptance Criterion | Result |
+|---|----------------------|--------|
+| 1 | Directory tree matches CLAUDE.md spec (`src/css/`, `src/js/`, `src/assets/`, `src/reference/`, `docs/tickets/`) | PASS |
+| 2 | Vite configured vanilla (no React/Astro) | PASS |
+| 3 | `npm run dev` script correctly wired (`"dev": "vite"`); both stub files now exist so the browser page will load without 404s | PASS |
+| 4 | `npm run build` emits clean `dist/` with hashed asset filenames | PASS |
+| 5 | `src/index.html` entry point — Google Fonts (Fraunces, Inter Tight, JetBrains Mono) with `&display=swap`; `<link rel="preconnect">` on both origins; `<script type="module">` entry | PASS |
+| 6 | `.gitignore` excludes `node_modules/`, `dist/`, `.env` | PASS |
+| 7 | `package.json` scripts: `dev`, `build`, `preview` | PASS |
+| 8 | Vite config: `base: '/'`, `build.outDir: 'dist'`, `rollupOptions.input.main: 'src/index.html'` | PASS |
+
+### Additional Checks (unchanged from initial run)
+
+| Check | Result |
+|-------|--------|
+| GSAP and Lenis as npm packages (not CDN) — `gsap@3.15.0`, `lenis@1.3.23` | PASS |
+| `src/reference/` files present; not imported in production code | PASS |
+| Semantic HTML at scaffold stage; `lang="en"` on `<html>` | PASS |
+
+### Commands Run
+
+| Command | Result |
+|---------|--------|
+| `ls src/js/main.js` | File present |
+| `ls src/css/global.css` | File present |
+| `npm run build` | EXIT 0 — clean dist emitted |
+| `find dist/ -type f` | `dist/src/index.html`, `dist/assets/main-*.css`, `dist/assets/main-*.js` |
+
+**Overall: PASSED** — All 8 acceptance criteria met. Both previously-failing stub files now exist. Build pipeline is fully verified.

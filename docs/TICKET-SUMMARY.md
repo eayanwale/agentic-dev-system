@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-05 | Total tickets: 21 | Open: 20 | In progress: 1 | Done: 0
+> Last updated: 2026-05-05 | Total tickets: 21 | Open: 20 | In progress: 0 | Done: 1
 
 ---
 
@@ -24,7 +24,7 @@ These must be completed before any other ticket can be built. No component shoul
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-001](tickets/KNOCH-001.md) | Project Scaffolding & Build Setup (Vite) | `🔁` | `feature/KNOCH-001-project-scaffold` | Entry point for all other work |
+| [KNOCH-001](tickets/KNOCH-001.md) | Project Scaffolding & Build Setup (Vite) | `✅` | `feature/KNOCH-001-project-scaffold` | Entry point for all other work |
 | [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `⬜` | — | Depends on KNOCH-001 |
 | [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `⬜` | — | Must precede KNOCH-007 |
 | [KNOCH-003](tickets/KNOCH-003.md) | Cinematic Chrome Navigation + Timecode Bar | `⬜` | — | Fixed overlay, all pages |
@@ -142,6 +142,21 @@ Run in this exact order: perf first (changes markup), then mobile (tests perf ch
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-05 — KNOCH-001 QA PASSED on re-test
+
+**Action:** Re-test by Tester Agent. All 8 acceptance criteria now pass.
+**Tickets affected:** KNOCH-001
+**Reason:** Builder applied the two fixes identified in the initial QA run: `src/js/main.js` and `src/css/global.css` were created as empty stub files. `npm run build` now exits cleanly (`vite v8.0.10`, 5 modules transformed, `dist/` emitted with hashed assets in 33ms).
+**Changes:**
+- KNOCH-001: Status changed NEEDS FIXES → QA PASSED
+- Dashboard badge updated: Needs Fixes → QA Passed (green)
+- Stat counts updated: In progress 1→0, Done 0→1
+**Passing checks:** All 8 ACs — directory tree, vanilla Vite, dev script, npm run build (now PASS), Google Fonts in index.html, .gitignore, package scripts, vite.config base + outDir.
+**Full report:** `docs/test-reports/KNOCH-001-test-report.md` (Re-test section appended)
+**Completed by:** Tester Agent
 
 ---
 
