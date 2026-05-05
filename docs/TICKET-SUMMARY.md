@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-05 | Total tickets: 21 | Open: 20 | In progress: 0 | Done: 1
+> Last updated: 2026-05-05 | Total tickets: 21 | Open: 19 | In progress: 1 | Done: 1
 
 ---
 
@@ -25,7 +25,7 @@ These must be completed before any other ticket can be built. No component shoul
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
 | [KNOCH-001](tickets/KNOCH-001.md) | Project Scaffolding & Build Setup (Vite) | `✅` | `feature/KNOCH-001-project-scaffold` | Entry point for all other work |
-| [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `⬜` | — | Depends on KNOCH-001 |
+| [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `🔵` | `feature/KNOCH-002-design-tokens` | Depends on KNOCH-001 |
 | [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `⬜` | — | Must precede KNOCH-007 |
 | [KNOCH-003](tickets/KNOCH-003.md) | Cinematic Chrome Navigation + Timecode Bar | `⬜` | — | Fixed overlay, all pages |
 | [KNOCH-004](tickets/KNOCH-004.md) | Custom Cursor & Film-Grain Overlay | `⬜` | — | Desktop only |
