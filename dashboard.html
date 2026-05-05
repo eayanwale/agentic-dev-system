@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Knoch — Project Dashboard</title>
+<style>
+  :root {
+    --ink:    #0a0a0a;
+    --paper:  #ede6d8;
+    --amber:  #e8a23a;
+    --rust:   #7a2418;
+    --dim:    rgba(237,230,216,0.45);
+    --faint:  rgba(237,230,216,0.12);
+    --border: rgba(237,230,216,0.1);
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --serif: Georgia, serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--ink); color:var(--paper); font-family:var(--mono); font-size:13px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a { color:var(--amber); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  /* ── Layout ── */
+  .wrap { max-width:1100px; margin:0 auto; padding:48px 32px 80px; }
+
+  /* ── Header ── */
+  header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:48px; padding-bottom:24px; border-bottom:1px solid var(--border); }
+  .brand { font-family:var(--serif); font-size:22px; letter-spacing:-0.01em; }
+  .brand span { color:var(--amber); }
+  .meta { text-align:right; font-size:11px; color:var(--dim); letter-spacing:0.08em; line-height:2; }
+  .meta strong { color:var(--paper); display:block; }
+
+  /* ── Stats bar ── */
+  .stats { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border); margin-bottom:40px; }
+  .stat { background:var(--ink); padding:20px 16px; }
+  .stat .n { font-family:var(--serif); font-size:36px; line-height:1; letter-spacing:-0.03em; color:var(--paper); }
+  .stat .n.amber { color:var(--amber); }
+  .stat .n.green { color:#6fcf97; }
+  .stat .n.blue  { color:#56b6f7; }
+  .stat .n.yellow{ color:#f2c94c; }
+  .stat .l { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--dim); margin-top:6px; }
+
+  /* ── Progress bar ── */
+  .progress-wrap { margin-bottom:40px; }
+  .progress-label { display:flex; justify-content:space-between; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--dim); margin-bottom:8px; }
+  .progress-track { height:3px; background:var(--faint); border-radius:2px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--amber); border-radius:2px; transition:width 0.6s ease; }
+
+  /* ── Phase sections ── */
+  .phase { margin-bottom:36px; }
+  .phase-header { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .phase-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--amber); }
+  .phase-line { flex:1; height:1px; background:var(--border); }
+  .phase-count { font-size:10px; color:var(--dim); letter-spacing:0.1em; }
+
+  /* ── Ticket rows ── */
+  table { width:100%; border-collapse:collapse; }
+  th { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--dim); padding:6px 10px; text-align:left; border-bottom:1px solid var(--border); }
+  th:last-child { text-align:right; }
+  td { padding:10px 10px; border-bottom:1px solid rgba(237,230,216,0.05); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:var(--faint); }
+
+  .tid { font-size:10px; color:var(--amber); letter-spacing:0.1em; white-space:nowrap; }
+  .ttitle { color:var(--paper); }
+  .ttitle a { color:var(--paper); }
+  .ttitle a:hover { color:var(--amber); text-decoration:none; }
+  .tbranch { font-size:10px; color:var(--dim); white-space:nowrap; }
+  .tpri { font-size:10px; text-align:right; white-space:nowrap; }
+
+  /* ── Status badges ── */
+  .badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 8px; border-radius:2px; white-space:nowrap; }
+  .badge-todo     { background:rgba(237,230,216,0.07); color:var(--dim); }
+  .badge-progress { background:rgba(86,182,247,0.12);  color:#56b6f7; }
+  .badge-review   { background:rgba(242,201,76,0.12);  color:#f2c94c; }
+  .badge-pass     { background:rgba(111,207,151,0.12); color:#6fcf97; }
+  .badge-fixes    { background:rgba(235,87,87,0.12);   color:#eb5757; }
+  .badge-shipped  { background:rgba(232,162,58,0.15);  color:var(--amber); }
+
+  .dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  .dot-todo     { background:var(--dim); }
+  .dot-progress { background:#56b6f7; animation:pulse 1.6s ease-in-out infinite; }
+  .dot-review   { background:#f2c94c; }
+  .dot-pass     { background:#6fcf97; }
+  .dot-fixes    { background:#eb5757; }
+  .dot-shipped  { background:var(--amber); }
+
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  /* ── Priority ── */
+  .p0 { color:#eb5757; }
+  .p1 { color:var(--amber); }
+  .p2 { color:var(--dim); }
+  .p3 { color:rgba(237,230,216,0.25); }
+
+  /* ── PRs section ── */
+  .prs { margin-top:40px; padding-top:28px; border-top:1px solid var(--border); }
+  .prs h2 { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--amber); margin-bottom:14px; }
+  .pr-row { display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(237,230,216,0.05); }
+  .pr-row:last-child { border-bottom:none; }
+  .pr-info { display:flex; align-items:center; gap:12px; }
+  .pr-num { font-size:10px; color:var(--amber); }
+  .pr-title { color:var(--paper); font-size:12px; }
+  .pr-branches { font-size:10px; color:var(--dim); }
+
+  /* ── Footer ── */
+  footer { margin-top:60px; padding-top:20px; border-top:1px solid var(--border); display:flex; justify-content:space-between; font-size:10px; color:var(--dim); letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div>
+      <div class="brand">Knoch<span>.</span> Project Dashboard</div>
+      <div style="font-size:11px;color:var(--dim);margin-top:4px;letter-spacing:0.06em;">knochmedia.xyz — portfolio rebuild</div>
+    </div>
+    <div class="meta">
+      <strong id="date-display">—</strong>
+      <span>Branch: <span style="color:var(--paper)">dev</span></span><br>
+      <span>Repo: eayanwale/knochmedia</span>
+    </div>
+  </header>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="n" id="stat-total">21</div>
+      <div class="l">Total tickets</div>
+    </div>
+    <div class="stat">
+      <div class="n" id="stat-open">20</div>
+      <div class="l">Open</div>
+    </div>
+    <div class="stat">
+      <div class="n blue" id="stat-progress">1</div>
+      <div class="l">In progress</div>
+    </div>
+    <div class="stat">
+      <div class="n yellow" id="stat-review">0</div>
+      <div class="l">In review</div>
+    </div>
+    <div class="stat">
+      <div class="n green" id="stat-done">0</div>
+      <div class="l">Done</div>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Overall progress</span>
+      <span id="pct-label">0 / 21 tickets shipped</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 1 — Foundation</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">5 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th>
+        <th>Title</th>
+        <th style="width:140px">Status</th>
+        <th style="width:220px">Branch</th>
+        <th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-001</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-001.md">Project Scaffolding &amp; Build Setup</a></td>
+          <td><span class="badge badge-review"><span class="dot dot-review"></span>In Review</span></td>
+          <td class="tbranch">feature/KNOCH-001-project-scaffold</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-002</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-002.md">Design Tokens &amp; CSS Custom Properties</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-016</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-016.md">Smooth Scrolling — Lenis + ScrollTrigger Sync</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-003</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-003.md">Cinematic Chrome Navigation + Timecode Bar</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-004</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-004.md">Custom Cursor &amp; Film-Grain Overlay</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 2 — Homepage Sections</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">6 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th><th>Title</th><th style="width:140px">Status</th><th style="width:220px">Branch</th><th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-005</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-005.md">Hero — Film Counter Loader + Reveal Sequence</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-006</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-006.md">Interlude — Word-by-Word Scroll Reveal</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-007</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-007.md">Horizontal Reel — Pinned Scroll Carousel</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-008</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-008.md">Pinned Frame — Parallax + Animated Counters</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-009</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-009.md">Testimonial Pull-Quote Section</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-010</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-010.md">Portfolio Grid — Asymmetric 12-Col Archive</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 3 — Secondary Pages</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">5 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th><th>Title</th><th style="width:140px">Status</th><th style="width:220px">Branch</th><th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-013</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-013.md">About / Story Section</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-011</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-011.md">Portfolio Filter System</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-012</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-012.md">Project Detail View + Video Lightbox</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-014</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-014.md">Contact — Multi-Step Qualified Inquiry Form</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-015</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-015.md">Footer — Credits Bar + Sitemap Variant</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 4 — Integrations</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">2 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th><th>Title</th><th style="width:140px">Status</th><th style="width:220px">Branch</th><th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-017</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-017.md">YouTube Integration — Lightbox + Showreel</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-018</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-018.md">Instagram Feed Integration</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p3">P3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 5 — Polish &amp; Ship</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">3 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th><th>Title</th><th style="width:140px">Status</th><th style="width:220px">Branch</th><th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-019</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-019.md">Performance Optimization — Images, Build, CWV</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-020</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-020.md">Responsive / Mobile Adaptations</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-021</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-021.md">Accessibility Pass — WCAG 2.1 AA</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Open PRs -->
+  <div class="prs">
+    <h2>Open Pull Requests</h2>
+    <div class="pr-row">
+      <div class="pr-info">
+        <span class="pr-num">#1</span>
+        <span class="badge badge-review"><span class="dot dot-review"></span>In Review</span>
+        <span class="pr-title">feat(scaffold): KNOCH-001 — Project scaffolding &amp; Vite build setup</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span class="pr-branches">dev → test</span>
+        <a href="https://github.com/eayanwale/knochmedia/pull/1" target="_blank" style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">View PR →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span>Knoch Media · Portfolio Rebuild · 2026</span>
+    <span>Open <a href="docs/TICKET-SUMMARY.md">TICKET-SUMMARY.md</a> for full changelog</span>
+  </footer>
+
+</div>
+
+<script>
+  // Live date
+  document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday:'short', year:'numeric', month:'short', day:'numeric' });
+
+  // Progress bar
+  const total = 21, done = 0;
+  document.getElementById('progress-fill').style.width = (done / total * 100) + '%';
+  document.getElementById('pct-label').textContent = done + ' / ' + total + ' tickets shipped';
+</script>
+</body>
+</html>
