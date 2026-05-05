@@ -7,7 +7,7 @@
 | Tester     | Tester Agent              |
 | PR         | #1 (dev → test, MERGED)   |
 | Branch     | test                      |
-| **Result** | **FAILED**                |
+| **Result** | **PASSED** *(re-test 2026-05-05)* |
 
 ---
 

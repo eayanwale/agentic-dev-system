@@ -89,6 +89,14 @@ For each ticket whose status changes, find its `<tr>` by matching the ticket ID 
 
 3. **Open PRs section** — when a PR is merged into `test` (QA PASSED), remove its `<div class="pr-row">` from the PRs section. If a re-test is needed (NEEDS FIXES), the PR row stays but the badge inside it can be updated to Needs Fixes.
 
+## Re-test Workflow
+When a ticket status is `NEEDS FIXES` and fixes have been applied on `dev`:
+1. Read the existing test report at `docs/test-reports/KNOCH-XXX-test-report.md`
+2. Re-run all checks against the current state of the files
+3. **Update the top-level Result field** in the header table at the top of the report to reflect the new outcome — e.g. `**PASSED** *(re-test YYYY-MM-DD)*` or `**FAILED** *(re-test YYYY-MM-DD)*`
+4. Append a `## Re-test — YYYY-MM-DD` section at the bottom with: what was fixed, build output, full criterion checklist, verdict
+5. Then follow the normal PASS or FAIL path (update ticket, TICKET-SUMMARY, dashboard, commit, push, merge)
+
 ## Test Report Format
 Every test report must follow this structure:
 
