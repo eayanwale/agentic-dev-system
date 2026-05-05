@@ -2,6 +2,22 @@ Test the following ticket using the tester agent.
 
 Ticket: $ARGUMENTS
 
+## Auto-detect next ticket to test (when no ticket ID is provided)
+
+If $ARGUMENTS is empty or blank, do NOT ask the user for a ticket ID. Instead:
+
+1. Read `docs/TICKET-SUMMARY.md`
+2. Look for tickets in this priority order:
+   a. Status `🔁` (Needs Revision / NEEDS FIXES) — these are highest priority; fixes have been pushed and a re-test is due
+   b. Status `🔵` (In Progress / IN REVIEW) — builder has opened a PR and it is awaiting QA
+3. Select the **first** matching ticket (top-to-bottom order within each priority group)
+4. Verify there is an open PR from `dev` → `test` for this ticket by running `gh pr list --base test --state open`
+5. Announce: "No ticket ID provided — auto-selected **KNOCH-XXX: [Title]** for testing (status: [current status])." then proceed
+
+If no tickets are in a testable state (IN REVIEW or NEEDS FIXES with a live PR), stop and inform the user that there is nothing currently queued for QA.
+
+---
+
 Steps:
 1. Read the ticket file from docs/tickets/ to get the acceptance criteria
 2. Find the open PR from dev → test for this ticket

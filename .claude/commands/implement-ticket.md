@@ -2,6 +2,24 @@ Implement the following ticket using the builder agent.
 
 Ticket: $ARGUMENTS
 
+## Auto-detect next ticket (when no ticket ID is provided)
+
+If $ARGUMENTS is empty or blank, do NOT ask the user for a ticket ID. Instead:
+
+1. Read `docs/TICKET-SUMMARY.md`
+2. Walk the phases in order (Phase 1 → Phase 2 → Phase 3 → Phase 4+)
+3. Within each phase, walk tickets top-to-bottom as they appear in the table
+4. For each ticket, check:
+   - Status is `⬜` (Open — not started)
+   - Every ticket listed in its "Depends on" or "Notes" column (e.g. "Depends on KNOCH-001") has status `✅` or `🚀`
+   - The ticket file `docs/tickets/KNOCH-XXX.md` also lists any explicit dependencies under a `## Dependencies` section — check those too
+5. Select the **first** ticket that satisfies both conditions above
+6. Announce: "No ticket ID provided — auto-selected **KNOCH-XXX: [Title]** as the next ready ticket." then proceed with that ticket as the target
+
+If every open ticket has an unresolved dependency, stop and inform the user which tickets are blocked and what they depend on.
+
+---
+
 Steps:
 1. Read the ticket file from docs/tickets/
 2. Read any referenced sections of the HTML mockups
