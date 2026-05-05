@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-05 | Total tickets: 21 | Open: 16 | In progress: 0 | In review: 0 | Done: 5
+> Last updated: 2026-05-05 | Total tickets: 21 | Open: 14 | In progress: 0 | In review: 0 | Done: 6
 
 ---
 
@@ -38,7 +38,7 @@ Build top-to-bottom in scroll order. Test the complete homepage scroll experienc
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-005](tickets/KNOCH-005.md) | Hero — Film Counter Loader + Reveal Sequence | `⬜` | — | LCP element — preload hero image |
+| [KNOCH-005](tickets/KNOCH-005.md) | Hero — Film Counter Loader + Reveal Sequence | `✅` | `feature/KNOCH-005-hero-section` | QA PASSED — merged to test |
 | [KNOCH-006](tickets/KNOCH-006.md) | Interlude — Word-by-Word Scroll Reveal | `⬜` | — | Manifesto quote section |
 | [KNOCH-007](tickets/KNOCH-007.md) | Horizontal Reel — Pinned Scroll Carousel | `⬜` | — | Most complex interaction; needs KNOCH-016 |
 | [KNOCH-008](tickets/KNOCH-008.md) | Pinned Frame — Parallax + Animated Counters | `⬜` | — | Studio stats section |
@@ -142,6 +142,44 @@ Run in this exact order: perf first (changes markup), then mobile (tests perf ch
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-05 — KNOCH-005 QA PASSED
+
+**Action:** QA run by Tester Agent. All 29 acceptance criteria pass.
+**Tickets affected:** KNOCH-005
+**Reason:** Hero section loader, reveal sequence, scroll exit, and asset verified against ticket spec and production bundle.
+**Changes:**
+- KNOCH-005: Status changed IN REVIEW → QA PASSED
+- PR #6 merged: dev → test
+- Dashboard badge updated: In Review → QA Passed (green)
+- Stat counts updated: In review 1→0, Done 5→6, Open 15→14
+**Passing checks:** All 29 ACs — #loader fixed/inset/z-index/ink bg, .loader-counter 18vw/Fraunces/300, GSAP proxy tween {val:0}→36/Math.ceil/padStart, amber label above counter (11px/0.3em/uppercase), .loader-progress 240px×1px/.loader-progress-fill amber, loader autoAlpha fade delay:2 + display:none onComplete, window.load trigger, body.loader-active .cursor{opacity:0}, #hero 100vh×100vw/overflow:hidden/flex center, .hero-bg absolute/inset0/cover/brightness(0.45)/grayscale(0.4)/contrast(1.15)/scale(1.1), reel-01.png background-image, preload link in head, .hero-content relative/z-index:2/text-center/padding:0 5vw, .hero-meta font-mono/10px/0.3em/amber/opacity:0, .line overflow:hidden/display:block, .line span translateY(110%), four headline lines with italic em, #hero-sub opacity:0/correct copy, reveal tl at t=0 scale1.1→1/2.4s/power3.out, meta opacity 0→1 at t=0, lineSpans y:0/1.2s/expo.out/stagger:0.12 at t=0.2, heroSub opacity at t=1.4, chrome opacity:0 pre-loader/faded in onComplete, initLenis not in main.js/called in onComplete, main.js imports+calls initHero, ScrollTrigger yPercent:25 on heroBg (trigger#hero/top-top/bottom-top/scrub), ScrollTrigger yPercent:-40+opacity:0 on heroContent, prefers-reduced-motion overrides, reel-01.png exists on disk, npm run build clean.
+**LOW notes:** Two rgba(237,230,216,…) alpha values in hero.css not using named tokens (non-blocking); PR description references old hero-01.jpg filename (doc only, no code impact).
+**Full report:** `docs/test-reports/KNOCH-005-test-report.md`
+**Completed by:** Tester Agent
+
+---
+
+### 2026-05-05 — KNOCH-005 implementation complete — MERGED TO DEV
+
+**Action:** Implemented and merged to dev; PR to be opened dev → test
+**Tickets affected:** KNOCH-005
+**Reason:** Builder agent completed the hero section with film-counter loader, reveal sequence, and scroll exit
+**Changes:**
+- KNOCH-005: Status changed TODO → IN REVIEW
+- Branch `feature/KNOCH-005-hero-section` created, implemented, merged into `dev`
+- Files delivered:
+  - `src/css/hero.css` — loader overlay styles, hero layout, clip-reveal, vignette, reduced-motion overrides
+  - `src/js/hero.js` — film-counter GSAP tween, progress bar, loader fade-out, reveal timeline, ScrollTrigger exits
+  - `src/index.html` — loader HTML, full hero section markup, hero-01.jpg preload, hero.css link
+  - `src/js/main.js` — removed direct initLenis() call; added initHero() import+call
+  - `src/css/cursor.css` — added body.loader-active .cursor rule
+  - `src/assets/hero/hero-01.jpg` — hero image copied from reference
+- Build: 18 modules, 270kB hero image, 6.74 kB CSS / 2.19 kB gz, 135.48 kB JS / 50.56 kB gz, 84ms
+- Header counts updated: Open 16→15
+**Requested by:** Builder agent
 
 ---
 
