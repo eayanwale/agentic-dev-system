@@ -1,6 +1,6 @@
 # KNOCH-002 — Design Tokens & CSS Custom Properties
 
-## Status: TODO
+## Status: IN PROGRESS
 ## Priority: P0 (critical)
 ## Epic: EPIC-001 — Foundation
 
