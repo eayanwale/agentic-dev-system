@@ -145,14 +145,17 @@ All modifications to this document and ticket files are logged here. Tester agen
 
 ---
 
-### 2026-05-05 — KNOCH-001 implementation started
+### 2026-05-05 — KNOCH-001 completed and PR open
 
-**Action:** In progress  
+**Action:** Implemented, merged to dev, PR open dev → test  
 **Tickets affected:** KNOCH-001  
-**Reason:** Builder agent began implementation of project scaffold  
-**Changes:**  
-- KNOCH-001: Status changed from TODO → IN PROGRESS  
-- Branch created: `feature/KNOCH-001-project-scaffold`  
+**Reason:** Builder agent completed full scaffold implementation  
+**Changes:**
+- KNOCH-001: Status changed TODO → IN PROGRESS → MERGED TO DEV → IN REVIEW
+- Branch `feature/KNOCH-001-project-scaffold` created, implemented, and merged into `dev`
+- PR #1 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/1
+- `test` branch created from `main` and pushed to remote
+- Files delivered: `package.json`, `vite.config.js`, `src/index.html`, `src/css/`, `src/js/`, `src/assets/`, `.gitignore` updated, all reference files organised into `src/reference/` and `src/design/`
 **Requested by:** Builder agent
 
 ---
