@@ -1,6 +1,6 @@
 # KNOCH-016 — Smooth Scrolling Integration (Lenis)
 
-## Status: IN REVIEW
+## Status: QA PASSED
 ## Priority: P0 (critical)
 ## Epic: EPIC-001 — Foundation
 

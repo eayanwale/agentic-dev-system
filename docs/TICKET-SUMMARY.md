@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-05 | Total tickets: 21 | Open: 18 | In progress: 0 | In review: 1 | Done: 2
+> Last updated: 2026-05-05 | Total tickets: 21 | Open: 18 | In progress: 0 | In review: 0 | Done: 3
 
 ---
 
@@ -26,7 +26,7 @@ These must be completed before any other ticket can be built. No component shoul
 |----|-------|--------|--------|-------|
 | [KNOCH-001](tickets/KNOCH-001.md) | Project Scaffolding & Build Setup (Vite) | `✅` | `feature/KNOCH-001-project-scaffold` | Entry point for all other work |
 | [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `✅` | `feature/KNOCH-002-design-tokens` | QA PASSED — merged to test |
-| [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `🔵` | `feature/KNOCH-016-lenis-smooth-scroll` | PR #3 open — dev → test |
+| [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `✅` | `feature/KNOCH-016-lenis-smooth-scroll` | QA PASSED — merged to test |
 | [KNOCH-003](tickets/KNOCH-003.md) | Cinematic Chrome Navigation + Timecode Bar | `⬜` | — | Fixed overlay, all pages |
 | [KNOCH-004](tickets/KNOCH-004.md) | Custom Cursor & Film-Grain Overlay | `⬜` | — | Desktop only |
 
@@ -142,6 +142,22 @@ Run in this exact order: perf first (changes markup), then mobile (tests perf ch
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-05 — KNOCH-016 QA PASSED
+
+**Action:** QA run by Tester Agent. All 9 acceptance criteria pass.
+**Tickets affected:** KNOCH-016
+**Reason:** Lenis module verified against ticket spec, Lenis v1.3.23 API, and production bundle.
+**Changes:**
+- KNOCH-016: Status changed IN REVIEW → QA PASSED
+- PR #3 merged: dev → test
+- Dashboard badge updated: In Review → QA Passed (green)
+- Stat counts updated: In review 1→0, Done 2→3
+**Passing checks:** All 9 ACs — lenis in package.json, constructor options (duration/easing/orientation/smoothWheel/autoRaf), GSAP ticker add + lagSmoothing(0), ScrollTrigger proxy with scrollTop getter/setter + getBoundingClientRect, lenis.on('scroll') sync, pointer:coarse touch guard, stopLenis/startLenis exports, 5 named exports from lenis.js, scrollTo() with duration 1.5 + touch fallback, main.js bootstrap, npm run build clean.
+**Full report:** `docs/test-reports/KNOCH-016-test-report.md`
+**Completed by:** Tester Agent
 
 ---
 
