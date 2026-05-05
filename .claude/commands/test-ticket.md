@@ -15,11 +15,13 @@ Steps:
    - Re-test (ticket is NEEDS FIXES): update the top-level Result field in the header table to the new outcome (e.g. `**PASSED** *(re-test YYYY-MM-DD)*`), then append a `## Re-test — YYYY-MM-DD` section at the bottom
 8. If ALL checks pass:
    - Approve the PR, merge dev → test (no squash)
+   - Tick off all `- [ ]` items in the PR Test plan section → `- [x]` using `gh pr edit <number> --body "<updated body>"`
    - Update `## Status:` in the ticket file to `QA PASSED`
    - Update `docs/TICKET-SUMMARY.md`: status symbol → ✅, add Changelog entry, update header counts
    - Update `dashboard.html`: badge → QA Passed, remove the PR's row from the Open PRs section, update stat counts
 9. If ANY check fails:
    - Request changes on the PR
+   - Tick off only passing `- [ ]` items in the PR Test plan; leave failing items unchecked using `gh pr edit <number> --body "<updated body>"`
    - Update `## Status:` in the ticket file to `NEEDS FIXES`
    - Update `docs/TICKET-SUMMARY.md`: status symbol → 🔁, add Changelog entry listing each issue, update header counts
    - Update `dashboard.html`: badge → Needs Fixes, update stat counts

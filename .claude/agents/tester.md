@@ -36,6 +36,7 @@ match their ticket specifications exactly.
    - Write test report with verdict PASS
    - Approve the PR (`gh pr review --approve`)
    - Merge the PR into `test` (`gh pr merge --merge --no-squash`)
+   - **Tick off the PR test plan checkboxes:** read the current PR body with `gh pr view <number> --json body -q '.body'`, replace every `- [ ]` with `- [x]` in the Test plan section, then update the PR body with `gh pr edit <number> --body "<updated body>"`
    - Update ticket status to `QA PASSED` in **both**:
      - The ticket file `docs/tickets/KNOCH-XXX.md` — change the `## Status:` line
      - `docs/TICKET-SUMMARY.md` — change the status symbol to `✅` in the ticket's table row
@@ -45,6 +46,7 @@ match their ticket specifications exactly.
 4. If ANY check fails:
    - Write test report with verdict FAIL and detailed issue list at `docs/test-reports/KNOCH-XXX-test-report.md`
    - Request changes on the PR (`gh pr review --request-changes`)
+   - **Tick off only the passing items in the PR test plan:** read the PR body, check off `- [ ]` → `- [x]` for items that passed, leave failing items unchecked, update with `gh pr edit <number> --body "<updated body>"`
    - Update ticket status to `NEEDS FIXES` in **both** the ticket file and `docs/TICKET-SUMMARY.md` (symbol: `🔁`)
    - Add a Changelog entry to `docs/TICKET-SUMMARY.md` listing the issues found and what the builder must fix
    - Update the summary header counts
