@@ -1,6 +1,6 @@
 # KNOCH-004 — Custom Cursor & Film-Grain Overlay
 
-## Status: TODO
+## Status: IN PROGRESS
 ## Priority: P1 (high)
 ## Epic: EPIC-001 — Foundation
 
