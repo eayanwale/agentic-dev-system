@@ -145,6 +145,21 @@ All modifications to this document and ticket files are logged here. Tester agen
 
 ---
 
+### 2026-05-05 — KNOCH-003 implementation complete — PR #4 open
+
+**Action:** Implemented and PR opened dev → test
+**Tickets affected:** KNOCH-003
+**Reason:** Builder agent completed the chrome navigation overlay
+**Changes:**
+- KNOCH-003: Status changed TODO → IN PROGRESS → MERGED TO DEV → IN REVIEW
+- Branch `feature/KNOCH-003-chrome-navigation` created, implemented, merged into `dev`
+- PR #4 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/4
+- Files delivered: `src/css/chrome.css`, `src/js/chrome.js`, `src/index.html` updated, `src/js/main.js` updated
+- Build: 14 modules, 3.29 kB CSS / 1.27 kB gz, 133.02 kB JS / 50.04 kB gz, 79ms
+**Requested by:** Builder agent
+
+---
+
 ### 2026-05-05 — KNOCH-016 QA PASSED
 
 **Action:** QA run by Tester Agent. All 9 acceptance criteria pass.
