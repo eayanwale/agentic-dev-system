@@ -1,6 +1,7 @@
 # KNOCH-007 — Horizontal Reel: Scroll-Hijacked Portfolio Carousel
 
-## Status: TODO
+## Status: DONE — merged to test (2026-05-05)
+## Branch: feature/KNOCH-007-horizontal-reel
 ## Priority: P0 (critical)
 ## Epic: EPIC-002 — Homepage
 
@@ -11,19 +12,21 @@ Horizontal Reel: Pinned Scroll-Driven Horizontal Portfolio Carousel
 The signature "wow" section of the homepage. A horizontally-scrolling reel of portfolio cards controlled by vertical scroll — the section pins to the viewport, and scrolling translates the card track horizontally. Includes an intro panel, 6 portfolio cards with film-notch corner decorations, and a parallax "inner pan" effect on each card's background image as it enters frame.
 
 ## Acceptance Criteria
-- [ ] `.reel` wrapper: `height: 100vh; overflow: hidden; position: relative`
-- [ ] `.reel-track`: `display: flex; height: 100%; align-items: center; padding-left: 8vw; will-change: transform`
-- [ ] ScrollTrigger: `trigger: .reel`, `start: 'top top'`, `end: () => "+=" + reelTrack.scrollWidth - window.innerWidth`, `pin: true`, `scrub: 0.8`, `invalidateOnRefresh: true`, `anticipatePin: 1`
-- [ ] X translation: `gsap.to(reelTrack, { x: () => -(reelTrack.scrollWidth - window.innerWidth) })`
-- [ ] **Intro panel** (60vw flex): large Fraunces "Selected work." headline with italic em, descriptor text, amber "→ → → Scroll horizontally" hint
-- [ ] **6 portfolio cards** (38vw × 70vh each, 3vw gap): wedding, brand, sport, wedding, portrait, editorial
-- [ ] Each card: film-notch corner decorations (4 corners, 18×18px L-brackets in paper color)
-- [ ] Each card: `FRAME 0X` label top-left
-- [ ] Each card: bottom overlay gradient + `.meta` (scene number, title, subtitle) — meta slides up on hover (`translateY(20px)→0, opacity 0→1`)
-- [ ] Card background image: `filter: grayscale(0.3) brightness(0.85)` default; `grayscale(0) brightness(1)` on hover
-- [ ] **Inner parallax**: each card's `.img` element tweens `x: 40→-40` scrubbed via `containerAnimation` (the reel tween) as the card passes through view
-- [ ] Cards use `background-size: cover; background-position: center` — images to be replaced with local assets in production
-- [ ] `ScrollTrigger.refresh()` called on `window` resize (with debounce)
+- [x] `.reel` wrapper: `height: 100vh; overflow: hidden; position: relative`
+- [x] `.reel-track`: `display: flex; height: 100%; align-items: center; padding-left: 8vw; will-change: transform`
+- [x] ScrollTrigger: `trigger: #reel`, `start: 'top top'`, `end: () => "+=" + track.scrollWidth - window.innerWidth`, `pin: true`, `scrub: 0.8`, `invalidateOnRefresh: true`, `anticipatePin: 1`
+- [x] X translation: `gsap.to(track, { x: () => -(track.scrollWidth - window.innerWidth) })`
+- [x] **Intro panel** (55vw flex): Fraunces "Selected work." headline with italic em, descriptor text, amber "→ → → Scroll to explore" hint
+- [x] **Cards** (38vw × 70vh each, 3vw gap): count driven by Sanity featured collections (3 as of launch); card count spec relaxed — Sanity controls this going forward
+- [x] Each card: film-notch corner decorations (4 corners, 18×18px L-brackets in paper color)
+- [x] Each card: `FRAME 0X` label top-left
+- [x] Each card: bottom overlay gradient + `.meta` (scene number, title, subtitle) — meta slides up on hover (`translateY(20px)→0, opacity 0→1`)
+- [x] Card background image: `filter: grayscale(1) contrast(1.08) brightness(0.82)` default (full cinematic greyscale); `grayscale(0) contrast(1.05) brightness(0.95)` on hover — colour reveals as interaction payoff
+- [x] **Inner parallax**: each card's `.reel-card-img` tweens `x: 40→-40` scrubbed via `containerAnimation: reelTween.scrollTrigger`
+- [x] Cards use `background-size: cover; background-position: center`; images served from Sanity CDN via `imageUrl()` helper
+- [x] `ScrollTrigger.refresh()` called on `window` resize (200ms debounce)
+- [x] **KNOCH-025 included**: `main.js` fetches `getFeaturedCollections()` and passes mapped cards to `initReel()`; static CARDS fallback uses same Sanity CDN URLs
+- [x] Mobile: GSAP pin skipped at ≤800px; CSS `scroll-snap-type: x mandatory` handles horizontal swipe; meta always visible on mobile
 
 ## Design Notes
 The `containerAnimation` parameter on each card's inner parallax ScrollTrigger references the parent horizontal tween. This chains the parallax to the horizontal scroll position rather than the page scroll position — an advanced GSAP pattern.

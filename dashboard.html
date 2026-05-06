@@ -127,11 +127,11 @@
   <!-- Stats -->
   <div class="stats">
     <div class="stat">
-      <div class="n" id="stat-total">21</div>
+      <div class="n" id="stat-total">30</div>
       <div class="l">Total tickets</div>
     </div>
     <div class="stat">
-      <div class="n" id="stat-open">14</div>
+      <div class="n" id="stat-open">12</div>
       <div class="l">Open</div>
     </div>
     <div class="stat">
@@ -143,7 +143,7 @@
       <div class="l">In review</div>
     </div>
     <div class="stat">
-      <div class="n green" id="stat-done">6</div>
+      <div class="n green" id="stat-done">15</div>
       <div class="l">Done</div>
     </div>
   </div>
@@ -152,10 +152,10 @@
   <div class="progress-wrap">
     <div class="progress-label">
       <span>Overall progress</span>
-      <span id="pct-label">0 / 21 tickets shipped</span>
+      <span id="pct-label">14 / 30 tickets done</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      <div class="progress-fill" id="progress-fill" style="width:46.7%"></div>
     </div>
   </div>
 
@@ -214,6 +214,85 @@
     </table>
   </div>
 
+  <!-- CMS -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">CMS — Content Layer (Sanity)</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">9 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th><th>Title</th><th style="width:140px">Status</th><th style="width:220px">Branch</th><th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-022</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-022.md">Sanity Project Init + Schema Definitions</a></td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-022-023-sanity-cms-setup</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-023</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-023.md">JS Content-Fetch Layer</a></td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-022-023-sanity-cms-setup</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-025</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-025.md">Wire Gallery Reel to Sanity</a></td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-007-horizontal-reel</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-024</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-024.md">Wire Testimonials to Sanity</a></td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-024-wire-testimonials-sanity</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-027</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-027.md">Wire About Page to Sanity</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-028</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-028.md">Wire Services Page to Sanity</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-026</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-026.md">Migrate Hero Images to Sanity CDN</a></td>
+          <td><span class="badge badge-todo" style="background:rgba(237,230,216,0.04);color:rgba(237,230,216,0.3)"><span class="dot" style="background:rgba(237,230,216,0.25)"></span>Deferred</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p3">P3</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-029</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-029.md">Blog Listing Page</a></td>
+          <td><span class="badge badge-todo" style="background:rgba(237,230,216,0.04);color:rgba(237,230,216,0.3)"><span class="dot" style="background:rgba(237,230,216,0.25)"></span>Deferred</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p3">P3</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-030</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-030.md">Blog Post Detail Page</a></td>
+          <td><span class="badge badge-todo" style="background:rgba(237,230,216,0.04);color:rgba(237,230,216,0.3)"><span class="dot" style="background:rgba(237,230,216,0.25)"></span>Deferred</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p3">P3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <!-- Phase 2 -->
   <div class="phase">
     <div class="phase-header">
@@ -236,36 +315,36 @@
         <tr>
           <td class="tid">KNOCH-006</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-006.md">Interlude — Word-by-Word Scroll Reveal</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-006-interlude-manifesto</td>
           <td class="tpri p1">P1</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-007</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-007.md">Horizontal Reel — Pinned Scroll Carousel</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-007-horizontal-reel</td>
           <td class="tpri p0">P0</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-008</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-008.md">Pinned Frame — Parallax + Animated Counters</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-008-pinned-frame</td>
           <td class="tpri p1">P1</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-009</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-009.md">Testimonial Pull-Quote Section</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-009-testimonial-section</td>
           <td class="tpri p2">P2</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-010</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-010.md">Portfolio Grid — Asymmetric 12-Col Archive</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-010-portfolio-grid</td>
           <td class="tpri p1">P1</td>
         </tr>
       </tbody>
@@ -393,9 +472,7 @@
   <!-- Open PRs -->
   <div class="prs">
     <h2>Open Pull Requests</h2>
-    <div class="pr-row" style="color:var(--dim);font-size:11px;letter-spacing:0.06em;">
-      No open pull requests.
-    </div>
+    <p style="font-size:11px;color:var(--dim);padding:10px 0;">No open pull requests.</p>
   </div>
 
   <!-- Footer -->
@@ -410,10 +487,10 @@
   // Live date
   document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday:'short', year:'numeric', month:'short', day:'numeric' });
 
-  // Progress bar
-  const total = 21, done = 0;
-  document.getElementById('progress-fill').style.width = (done / total * 100) + '%';
-  document.getElementById('pct-label').textContent = done + ' / ' + total + ' tickets shipped';
+  // Progress bar — "done" = merged to test (15 of 30)
+  const total = 30, done = 15;
+  document.getElementById('progress-fill').style.width = (done / total * 100).toFixed(1) + '%';
+  document.getElementById('pct-label').textContent = done + ' / ' + total + ' tickets done';
 </script>
 </body>
 </html>
