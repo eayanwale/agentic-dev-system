@@ -1,8 +1,11 @@
 # KNOCH-013 — About / Story Section
 
-## Status: TODO
+## Status: QA PASSED
 ## Priority: P2 (medium)
 ## Epic: EPIC-003 — Secondary Pages
+## Branch: feature/KNOCH-013-about-story-section
+## PR: #19 (dev → test) — merged
+## Test report: docs/test-reports/KNOCH-013-test-report.md
 
 ## Title
 About / Studio Story Section: Split-Layout with Pinned Text and Scrolling Image Column

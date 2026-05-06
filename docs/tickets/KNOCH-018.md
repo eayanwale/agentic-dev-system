@@ -1,8 +1,9 @@
 # KNOCH-018 — Instagram Embed Integration
 
-## Status: TODO
+## Status: DEFERRED
 ## Priority: P3 (nice-to-have)
 ## Epic: EPIC-004 — Integrations
+## Deferred: 2026-05-06 — Enoch decided a footer Instagram icon link to @knochmedia_ is enough; live feed adds complexity (paid embed service, FB Graph API, or manual quarterly screenshot updates) without meaningful UX gain on a portfolio site. KNOCH-015 (footer) covers the link. Revisit if Enoch ever wants live posts surfaced on-site — Behold.so is the lightest path.
 
 ## Title
 Instagram Integration: Feed Display and Profile Link

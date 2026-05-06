@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-05 | Total tickets: 30 | Open: 12 | In progress: 0 | In review: 0 | Done: 15 | Deferred: 3
+> Last updated: 2026-05-06 | Total tickets: 30 | Open: 6 | In progress: 0 | In review: 1 | Done: 19 | Deferred: 4
 
 ---
 
@@ -71,11 +71,11 @@ Build in this order: About → Portfolio page → Project detail → Contact →
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-013](tickets/KNOCH-013.md) | About / Story Section (about.html) | `⬜` | — | Sticky split layout |
-| [KNOCH-011](tickets/KNOCH-011.md) | Portfolio Filter System (portfolio.html) | `⬜` | — | Category tabs, URL hash state |
-| [KNOCH-012](tickets/KNOCH-012.md) | Project Detail View + Video Lightbox | `⬜` | — | Expanding tile transition |
-| [KNOCH-014](tickets/KNOCH-014.md) | Contact — Multi-Step Qualified Inquiry Form | `⬜` | — | 3-step form + Calendly sidebar |
-| [KNOCH-015](tickets/KNOCH-015.md) | Footer — Credits Bar + Sitemap Variant | `⬜` | — | Two variants: minimal + expanded |
+| [KNOCH-013](tickets/KNOCH-013.md) | About / Story Section (about.html) | `✅` | `feature/KNOCH-013-about-story-section` | QA PASSED — merged to test |
+| [KNOCH-011](tickets/KNOCH-011.md) | Portfolio Filter System (portfolio.html) | `✅` | `feature/KNOCH-011-portfolio-filter` | QA PASSED — merged to test |
+| [KNOCH-012](tickets/KNOCH-012.md) | Project Detail View + Video Lightbox | `✅` | `feature/KNOCH-012-project-detail-lightbox` | PR #21 merged + KNOCH-036 polish bundled |
+| [KNOCH-014](tickets/KNOCH-014.md) | Contact — Multi-Step Qualified Inquiry Form | `✅` | `feature/KNOCH-014-contact-form` | PR #22 merged to test |
+| [KNOCH-015](tickets/KNOCH-015.md) | Footer — Credits Bar + Sitemap Variant | `🔵` | `feature/KNOCH-015-footer` | PR #23 — In review (dev → test) |
 
 ---
 
@@ -84,7 +84,7 @@ Build in this order: About → Portfolio page → Project detail → Contact →
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
 | [KNOCH-017](tickets/KNOCH-017.md) | YouTube Integration — Lightbox + Showreel | `⬜` | — | Lazy iframe inject on click |
-| [KNOCH-018](tickets/KNOCH-018.md) | Instagram Feed Integration | `⬜` | — | Behold.so or static fallback |
+| [KNOCH-018](tickets/KNOCH-018.md) | Instagram Feed Integration | `⏸` | — | Deferred — footer icon link covers it |
 
 ---
 
@@ -173,6 +173,270 @@ CMS layer (cuts across phases — wire each section after it is built):
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-06 — KNOCH-015 PR opened — IN REVIEW
+
+**Action:** PR #23 opened dev → test
+**Tickets affected:** KNOCH-015
+**Reason:** Footer module shipped — minimal credits bar (homepage) and expanded sitemap (about / portfolio / project / contact) sharing one `<footer id="site-footer">` host populated by `initFooter(variant)`. Editable constants block in footer.js means roll number / version / contact / social can be bumped in a one-line edit without engineer help.
+**Changes:**
+- KNOCH-015: Status IN PROGRESS → IN REVIEW.
+- PR #23 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/23
+- Files delivered:
+  - `src/js/footer.js` — constants, SVG icons (Instagram + YouTube, 18×18, currentColor), `initFooter('minimal'|'expanded')`
+  - `src/css/footer.css` — base + minimal/expanded/mobile variants; 10 px mono / 0.2em LS / uppercase / paper @ 40 % typography matching chrome
+  - `src/index.html`, `src/about.html`, `src/portfolio.html`, `src/project.html`, `src/contact.html` — `<link rel="stylesheet" href="/css/footer.css">` + `<footer id="site-footer">`
+  - `src/js/main.js`, `about-main.js`, `portfolio-main.js`, `project-main.js`, `contact-main.js` — initFooter wiring
+  - `src/about.html` — `id="process"` on the How-We-Work section so the footer Studio column's Process link deep-links
+- Build: 5 HTML entries → emit; footer.css 7.50 kB / 2.37 kB gz; 144 ms.
+- Header counts updated: In progress 1→0, In review 0→1.
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-015 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-015
+**Reason:** Last open Phase 3 ticket. Footer is shared chrome that lands on every page and unblocks the Phase 3 → main milestone squash.
+**Changes:**
+- Branch `feature/KNOCH-015-footer` cut from dev (1c581f6).
+- KNOCH-015: Status TODO → IN PROGRESS, Branch line added to ticket file.
+- TICKET-SUMMARY row swapped to 🔵 with branch column filled.
+- Header counts updated: Open 7→6, In progress 0→1.
+**Requested by:** /implement-ticket auto-detect (Enoch)
+
+---
+
+### 2026-05-06 — KNOCH-014 QA PASSED — merged to test
+
+**Action:** PR #22 merged dev → test (regular merge, no squash)
+**Tickets affected:** KNOCH-014
+**Reason:** Contact form page passed live review on dev — banner clears chrome (5rem padding), 3-step transitions smooth, ?type= URL pre-fill works from project CTAs, partner field shows only for wedding inquiries. Banner drop-in animation lands cleanly on load.
+**Changes:**
+- KNOCH-014: Status 🔵 In review → ✅ Done.
+- PR #22 merged; dev and test now aligned at 1c581f6.
+- Header counts updated: In review 1→0, Done 18→19.
+**Requested by:** Enoch
+
+---
+
+### 2026-05-06 — KNOCH-018 deferred — Instagram embed dropped from scope
+
+**Action:** KNOCH-018 status changed ⬜ Open → ⏸ Deferred
+**Tickets affected:** KNOCH-018
+**Reason:** Enoch reviewed the Phase 4 ticket list and decided a live Instagram feed adds complexity (paid embed service like Behold.so, or Meta Graph API setup, or manual screenshot updates) without meaningful UX gain on a portfolio site. The plain footer icon link to @knochmedia_ — already in KNOCH-015's scope — is the cleaner solution. Ticket file annotated with the rationale + revisit path (Behold.so) if a feed surfaces in a future iteration.
+**Changes:**
+- KNOCH-018: Status ⬜ Open → ⏸ Deferred. Header reason added to ticket file.
+- TICKET-SUMMARY table row swapped to ⏸ + "Deferred — footer icon link covers it" note.
+- Header counts updated: Open 8→7, Deferred 3→4.
+**Requested by:** Enoch
+
+---
+
+### 2026-05-06 — KNOCH-014 PR opened — IN REVIEW
+
+**Action:** PR #22 opened dev → test
+**Tickets affected:** KNOCH-014
+**Reason:** Builder completed Contact / Inquiry form page — /contact.html with 3-step qualified inquiry, Calendly sidebar, ?type= URL pre-fill, and cross-page Inquire link routing.
+**Changes:**
+- KNOCH-014: Status changed 🔵 In progress → 🔵 In review
+- PR #22 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/22
+- Files delivered:
+  - `src/contact.html` — full page (banner + hero + 2-col body w/ form + sidebar)
+  - `src/css/contact-page.css` — page styles (scarcity banner, hero, form fields, tile selectors, step panels w/ slide states, sidebar blocks, mobile collapse)
+  - `src/js/contact-page.js` — tile selector + ?type= pre-fill + conditional partner + GSAP step transitions + per-step validation + submit handler (placeholder action)
+  - `src/js/contact-main.js` — slim entry
+  - `src/index.html` + `src/about.html` + `src/portfolio.html` + `src/project.html` — chrome Inquire links + page CTAs all repointed to /contact.html
+  - `src/js/project-page.js` — project CTA href stamped at runtime with ?type=<category>
+  - `vite.config.js` — contact.html added as 5th `rollupOptions.input`
+- Build: 5 HTML entries → all emit; contact bundle 8.29 kB CSS / 1.91 kB gz, 4.22 kB JS / 1.81 kB gz; 158 ms
+- Header counts updated: In progress 1→0, In review 0→1
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-014 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-014
+**Reason:** Builder agent starting Contact / Inquiry Flow — dedicated /contact.html with 3-step qualified inquiry form, Calendly sidebar, scarcity banner, ?type= URL param pre-fill, and slide-out/in step transitions.
+**Changes:**
+- KNOCH-014: Status changed ⬜ Open → 🔵 In progress
+- Branch `feature/KNOCH-014-contact-form` created from dev
+- Header counts updated: Open 9→8, In progress 0→1, In review 1→0, Done 17→18 (KNOCH-012 status reflected as ✅ now that PR #21 is merged; KNOCH-036 polish landed in same merge)
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-012 + KNOCH-036 merged to test (PR #21 closed)
+
+**Action:** PR #21 merged dev → test by Enoch (no tester pass — Enoch reviewed live on the test preview).
+**Tickets affected:** KNOCH-012, KNOCH-036
+**Reason:** Project Detail View + Video Lightbox (KNOCH-012) and the cross-ticket Phase 3 polish (KNOCH-036) shipped together as the third Phase 3 increment.
+**Changes:**
+- KNOCH-012: Status 🔵 In review → ✅ Done.
+- KNOCH-036: Status 🔵 In review → ✅ Done (bundled in PR #21's merge).
+- Test branch advanced to 1ac75fb. dev re-aligned to the same commit per the post-merge ritual so the next branch cuts cleanly.
+- main untouched at a629573 — Phase 3 still in progress, no shipping to production this cycle.
+**Completed by:** Enoch (manual merge in GitHub)
+
+---
+
+### 2026-05-06 — KNOCH-036 polish folded into PR #21
+
+**Action:** Phase 3 polish bundle merged into dev (cebdc46), folded into PR #21
+**Tickets affected:** KNOCH-036 (new ticket, in review), KNOCH-011 / KNOCH-012 / KNOCH-013 / KNOCH-035 (cross-ticket polish)
+**Reason:** Enoch reviewed the Phase 3 test preview after PR #21 opened and flagged a bundle of issues spanning multiple tickets — nav structure inconsistencies, homepage trims, testimonial reveal style, portfolio category taxonomy change (Sanity-side rename), about-page split feeling static, project page gallery showing irrelevant placeholder images. Fixes are tightly coupled across the four tickets so they ship as one branch (`feature/KNOCH-036-phase-3-polish`) folded into the still-open PR #21 rather than as a separate PR cycle.
+**Changes:**
+- KNOCH-036: Created. Status ⬜ Open → 🔵 In review (folded into PR #21).
+- Branch `feature/KNOCH-036-phase-3-polish` created from dev, six logical commits, merged into dev as fast-forward
+- PR #21 title updated to "feat(KNOCH-012 + KNOCH-036)"; description expanded with the polish item list and additional Test plan checkboxes
+- Files touched: src/index.html, src/about.html, src/portfolio.html, src/project.html, src/css/{about,chrome,project-page,reel,testimonial}.css, src/js/{about,portfolio-page,project-page,projects,testimonial}.js, docs/tickets/KNOCH-036.md
+- Build: 65 modules → 65, dist HTML totals: index 25.96 / 7.58 gz, about 12.13 / 3.82 gz, portfolio 11.84 / 3.13 gz, project 6.34 / 2.29 gz; 172 ms
+**Requested by:** Enoch (reviewed live preview, listed issues in chat)
+
+---
+
+### 2026-05-06 — KNOCH-012 PR opened — IN REVIEW
+
+**Action:** PR #21 opened dev → test
+**Tickets affected:** KNOCH-012
+**Reason:** Builder completed Project Detail View + Video Lightbox; PR open for tester / code review
+**Changes:**
+- KNOCH-012: Status changed 🔵 In progress → 🔵 In review
+- PR #21 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/21
+- Files delivered:
+  - `src/js/projects.js` — 12-entry project data module (3 fully populated photo + 4 video + 5 placeholder)
+  - `src/css/video-lightbox.css` + `src/js/video-lightbox.js` — full-screen YouTube modal with focus trap, ESC, click-out
+  - `src/js/tile-router.js` — central click router (data-project-id → lightbox or expanding-tile transition + project.html navigate)
+  - `src/project.html` + `src/css/project-page.css` + `src/js/project-page.js` + `src/js/project-main.js` — standalone project page with hero, sticky metadata, image gallery, CTA
+  - `src/portfolio.html` — all 12 cards: data-project-id replaces inline onclick; role="button" added; video-lightbox.css linked
+  - `src/index.html` — archive tiles t1–t7 swap data-link-type/data-url for data-project-id; video-lightbox.css linked
+  - `src/js/main.js` + `src/js/portfolio-main.js` — initVideoLightbox added
+  - `src/js/portfolio-grid.js` + `src/js/portfolio-page.js` — click handlers delegate to handleTileActivate
+  - `vite.config.js` — project.html added as fourth `rollupOptions.input`
+- Build: 60 → 70 modules; dist/project.html 5.30 kB / 1.94 kB gz; new shared chunks tile-router-*.js 1.69 kB / 0.88 kB gz, video-lightbox-*.js 7.29 kB / 2.56 kB gz; 145 ms
+- Header counts updated: In progress 1→0, In review 0→1
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-012 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-012
+**Reason:** Builder agent starting Project Detail View + Video Lightbox — projects.js data module, video-lightbox component, project.html standalone page with expanding-tile transition, click-handler routing across portfolio.html and homepage archive
+**Changes:**
+- KNOCH-012: Status changed ⬜ Open → 🔵 In progress
+- Branch `feature/KNOCH-012-project-detail-lightbox` created from dev
+- Header counts updated: Open 10→9, In progress 0→1
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-011 QA PASSED — merged to test
+
+**Action:** PR #20 merged (dev → test) — KNOCH-011 QA PASSED
+**Tickets affected:** KNOCH-011
+**Reason:** Tester agent verified all 11 acceptance criteria; build clean at 140 ms / 65 modules. Filter state machine traced for `wedding`, `all`, `Load more`, and `portrait` scenarios — exit / entry overlap, `display: none` after exit, count + button toggle all confirmed correct. Hash sync via `replaceState` + `hashchange` with feedback-loop guard works. Three LOW findings, none blocking: (1) `data-category="film"` not implemented — folded into `brand` since there's no Film tab in the AC anyway; (2) count label uses dynamic total instead of hardcoded "47" — more honest given DOM has 12 cards; (3) cards have `tabindex="0"` + inline `onclick` but no keydown handler — outside AC scope (filter tabs are properly keyboard-accessible), flagged for KNOCH-021.
+**Changes:**
+- KNOCH-011: Status changed IN REVIEW → ✅ QA PASSED
+- PR #20 merged with full merge commit (no squash, per workflow)
+- All 13 Test plan checkboxes ticked in PR body
+- Test report written: `docs/test-reports/KNOCH-011-test-report.md`
+- Header counts updated: In review 1→0, Done 16→17
+**Completed by:** Tester Agent
+
+---
+
+### 2026-05-06 — KNOCH-011 PR opened — IN REVIEW
+
+**Action:** PR #20 opened dev → test
+**Tickets affected:** KNOCH-011
+**Reason:** Builder completed Portfolio Filter System (portfolio.html); PR open for tester / code review
+**Changes:**
+- KNOCH-011: Status changed 🔵 In progress → 🔵 In review
+- PR #20 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/20
+- Files delivered:
+  - `src/portfolio.html` — full page (hero with filter tabs, 12-card grid, count + Load more meta row)
+  - `src/css/portfolio-page.css` — page styles (hero, tabs with animated underline, 3-col grid w/ aspect-ratio 4/5 cards, hover-reveal label, meta row, mobile + reduced-motion)
+  - `src/js/portfolio-page.js` — filter state machine (PAGE_SIZE=8), GSAP overlapping exit/enter tweens, URL hash sync via replaceState + hashchange, Load more
+  - `src/js/portfolio-main.js` — slim entry point (no homepage modules)
+  - `src/index.html` — "View the full portfolio →" link in `.reel-intro` panel for discoverability
+  - `src/css/reel.css` — `.reel-intro-portfolio-link` styles matching the existing amber-underline mono link vocabulary
+  - `vite.config.js` — portfolio.html added as third `rollupOptions.input`
+- Build: 60 modules → 65, dist/portfolio.html 14.31 kB / 3.39 kB gz, dist/index.html 26.62 kB / 7.79 kB gz, 132 ms
+- Header counts updated: In progress 1→0, In review 0→1
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-011 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-011
+**Reason:** Builder agent starting Portfolio Filter System (portfolio.html) — category filter tabs, GSAP grid re-layout animation, URL hash sync, "Load more" pagination
+**Changes:**
+- KNOCH-011: Status changed ⬜ Open → 🔵 In progress
+- Branch `feature/KNOCH-011-portfolio-filter` created from dev
+- Header counts updated: Open 11→10, In progress 0→1
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-013 QA PASSED — merged to test
+
+**Action:** PR #19 merged (dev → test) — KNOCH-013 QA PASSED
+**Tickets affected:** KNOCH-013
+**Reason:** Tester agent verified all 12 acceptance criteria; build clean at 124 ms / 60 modules. Two findings, both LOW: sticky CSS values aligned to spec exactly during QA (originally `top: 12vh` no `height` → now `top: 10vh; height: 80vh`); image 5's duplicate `data-image="4"` attribute is intentional design (keeps chapter 4 lit through the closing image) and documented in HTML / JS comments.
+**Changes:**
+- KNOCH-013: Status changed IN REVIEW → ✅ QA PASSED
+- PR #19 merged with full merge commit (no squash, per workflow); test branch advanced to include the About page + homepage teaser
+- Sticky CSS fix committed on dev as part of QA pass — `src/css/about.css:135-137` now matches AC values
+- All 12 Test plan checkboxes ticked in PR body
+- Test report written: `docs/test-reports/KNOCH-013-test-report.md`
+- Header counts updated: In review 1→0, Done 15→16
+**Completed by:** Tester Agent
+
+---
+
+### 2026-05-06 — KNOCH-013 PR opened — IN REVIEW
+
+**Action:** PR #19 opened dev → test
+**Tickets affected:** KNOCH-013
+**Reason:** Builder completed About / Story page implementation; PR open for tester / code review
+**Changes:**
+- KNOCH-013: Status changed 🔵 In progress → 🔵 In review
+- PR #19 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/19
+- Files delivered:
+  - `src/about.html` — full page (hero, intro, split layout w/ 4 chapters + 5 images, by-the-numbers, process, CTA)
+  - `src/css/about.css` — page styles (sticky split, chapter dim/active, aspect-ratio image frames, mobile collapse, reduced-motion)
+  - `src/css/studio-teaser.css` — homepage teaser block styles
+  - `src/js/about.js` — hero entrance timeline, IntersectionObserver chapter sync, ScrollTrigger counter tweens
+  - `src/js/about-main.js` — slim entry point for the About page (no homepage modules loaded)
+  - `src/public/assets/about/about-01..05.jpg` — 5 narrative images (copied from reference homepage cache)
+  - `src/index.html` — homepage studio teaser block inserted between #frame and #testimonial; studio-teaser.css linked
+  - `src/js/chrome.js` — `.mark` click handler now distinguishes same-page (smooth scroll) from cross-page (browser navigation), fixing back-to-home from /about.html
+  - `vite.config.js` — about.html added as second `rollupOptions.input`
+- Build: 60 modules, dist/about.html 12.99 kB / 4.06 kB gz, dist/index.html 26.51 kB / 7.77 kB gz, 178 ms
+- Header counts updated: In progress 1→0, In review 0→1
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-013 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-013
+**Reason:** Builder agent starting About / Story page (about.html) — split-layout sticky narrative with scrolling image column, plus homepage studio teaser block
+**Changes:**
+- KNOCH-013: Status changed ⬜ Open → 🔵 In progress
+- Branch `feature/KNOCH-013-about-story-section` created from dev
+- Header counts updated: Open 12→11, In progress 0→1
+**Requested by:** Builder agent
 
 ---
 

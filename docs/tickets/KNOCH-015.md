@@ -1,8 +1,9 @@
 # KNOCH-015 — Footer
 
-## Status: TODO
+## Status: IN REVIEW
 ## Priority: P2 (medium)
 ## Epic: EPIC-003 — Secondary Pages
+## Branch: feature/KNOCH-015-footer
 
 ## Title
 Footer: Three-Column Credits Bar with Social Links and Legal

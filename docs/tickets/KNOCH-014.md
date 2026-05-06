@@ -1,8 +1,10 @@
 # KNOCH-014 — Contact / Inquiry Flow (Multi-Step Qualified Form)
 
-## Status: TODO
+## Status: IN REVIEW
 ## Priority: P1 (high)
 ## Epic: EPIC-003 — Secondary Pages
+## Branch: feature/KNOCH-014-contact-form
+## PR: #22 (dev → test)
 
 ## Title
 Contact Page: Multi-Step Qualified Inquiry Form with Calendar Booking Option

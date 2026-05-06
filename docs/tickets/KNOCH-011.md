@@ -1,8 +1,11 @@
 # KNOCH-011 — Portfolio Filter System
 
-## Status: TODO
+## Status: QA PASSED
 ## Priority: P2 (medium)
 ## Epic: EPIC-003 — Secondary Pages
+## Branch: feature/KNOCH-011-portfolio-filter
+## PR: #20 (dev → test) — merged
+## Test report: docs/test-reports/KNOCH-011-test-report.md
 
 ## Title
 Portfolio Page: Category Filter Tabs with Animated Grid Re-Layout
