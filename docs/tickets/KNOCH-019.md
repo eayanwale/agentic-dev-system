@@ -1,6 +1,8 @@
 # KNOCH-019 — Performance Optimization
 
-## Status: TODO
+## Status: DONE — merged to test (2026-05-07)
+## Branch: feature/KNOCH-019-performance
+## PR: https://github.com/eayanwale/knochmedia/pull/25 (merged)
 ## Priority: P1 (high)
 ## Epic: EPIC-005 — Polish & Ship
 

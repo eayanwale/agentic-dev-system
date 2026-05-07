@@ -1,8 +1,8 @@
 # KNOCH-017 — YouTube Integration
 
-## Status: IN REVIEW
+## Status: SHIPPED — Phase 4 squash to main
 ## Branch: feature/KNOCH-017-youtube-integration
-## PR: https://github.com/eayanwale/knochmedia/pull/24
+## PR: https://github.com/eayanwale/knochmedia/pull/24 (merged → squashed to main as 21bf31c)
 ## Priority: P2 (medium)
 ## Epic: EPIC-004 — Integrations
 

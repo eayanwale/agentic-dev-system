@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-06 | Total tickets: 30 | Open: 5 | In progress: 0 | In review: 1 | Done: 20 | Deferred: 4 | Phases 1–3 shipped to main 🚀
+> Last updated: 2026-05-07 | Total tickets: 35 | Open: 4 | In progress: 0 | In review: 1 | Done: 25 | Deferred: 5 | Phases 1–4 shipped to main 🚀
 
 ---
 
@@ -43,8 +43,8 @@ KNOCH-022 and KNOCH-023 are infrastructure — implement these first. The wiring
 | [KNOCH-024](tickets/KNOCH-024.md) | Wire Testimonials to Sanity | `✅` | `feature/KNOCH-024-wire-testimonials-sanity` | QA PASSED — merged to test |
 | [KNOCH-025](tickets/KNOCH-025.md) | Wire Gallery Reel to Sanity | `✅` | `feature/KNOCH-007-horizontal-reel` | `main.js` fetches `getFeaturedCollections()` → `initReel()`; 3 featured collections with Sanity CDN images; `subtitle` field added to schema |
 | [KNOCH-026](tickets/KNOCH-026.md) | Migrate Hero Images to Sanity CDN | `⏸` | — | Deferred — hero is LCP-critical and design-tied; static files are the correct approach |
-| [KNOCH-027](tickets/KNOCH-027.md) | Wire About Page to Sanity | `⬜` | — | After KNOCH-013 (about page) is built |
-| [KNOCH-028](tickets/KNOCH-028.md) | Wire Services Page to Sanity | `⬜` | — | After services page is built |
+| [KNOCH-027](tickets/KNOCH-027.md) | Wire About Page to Sanity | `✅` | `feature/KNOCH-027-wire-about-sanity` | Done — merged to test (PR #29) |
+| [KNOCH-028](tickets/KNOCH-028.md) | Wire Services Page to Sanity | `⏸` | — | Deferred — `getServices()` already in `sanity.js`, but no services page exists in the build; contact form's budget tiers cover pricing |
 | [KNOCH-029](tickets/KNOCH-029.md) | Blog Listing Page | `⏸` | — | Deferred — blog schema needs redesign (dynamic related posts, YouTube + Instagram content types) |
 | [KNOCH-030](tickets/KNOCH-030.md) | Blog Post Detail Page | `⏸` | — | Deferred — blocked by KNOCH-029 redesign |
 
@@ -83,7 +83,7 @@ Build in this order: About → Portfolio page → Project detail → Contact →
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-017](tickets/KNOCH-017.md) | YouTube Integration — Lightbox + Showreel | `🔵` | `feature/KNOCH-017-youtube-integration` | Lazy iframe inject on click |
+| [KNOCH-017](tickets/KNOCH-017.md) | YouTube Integration — Lightbox + Showreel | `🚀` | `feature/KNOCH-017-youtube-integration` | Shipped — Phase 4 squash to main (PR #24 + chrome glass polish bundled; hero PLAY REEL CTA descoped) |
 | [KNOCH-018](tickets/KNOCH-018.md) | Instagram Feed Integration | `⏸` | — | Deferred — footer icon link covers it |
 
 ---
@@ -94,9 +94,23 @@ Run in this exact order: perf first (changes markup), then mobile (tests perf ch
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-019](tickets/KNOCH-019.md) | Performance Optimization — Images, Build, CWV | `⬜` | — | Lighthouse ≥85 mobile target |
-| [KNOCH-020](tickets/KNOCH-020.md) | Responsive / Mobile Adaptations | `⬜` | — | 800px breakpoint; reel → CSS snap |
-| [KNOCH-021](tickets/KNOCH-021.md) | Accessibility Pass — WCAG 2.1 AA | `⬜` | — | Reduced motion, focus, ARIA |
+| [KNOCH-019](tickets/KNOCH-019.md) | Performance Optimization — Images, Build, CWV | `✅` | `feature/KNOCH-019-performance` | Done — merged to test (PR #25 + footer polish bundled); Lighthouse verification pending |
+| [KNOCH-020](tickets/KNOCH-020.md) | Responsive / Mobile Adaptations | `✅` | `feature/KNOCH-020-mobile` | Done — merged to test (PR #26 + reel-vertical / project-others-hide / per-slide hero meta polish bundled) |
+| [KNOCH-021](tickets/KNOCH-021.md) | Accessibility Pass — WCAG 2.1 AA | `🔵` | `feature/KNOCH-021-a11y-pass` | In review — PR #30 dev → test (closes Phase 5) |
+| [KNOCH-041](tickets/KNOCH-041.md) | Mobile Sustainable Mode — strip GSAP / Lenis / scroll-driven animation | `✅` | `feature/KNOCH-041-mobile-sustainable` | Done — merged to test (PR #27 + image culling + chrome wordmark + hamburger close polish bundled) |
+
+---
+
+## Phase 6 — Launch & SEO
+
+Three launch-readiness tickets + one post-launch SEO deepening. KNOCH-039 (form anti-spam + real submission) is the launch-blocker — `/contact.html` currently posts to a placeholder. KNOCH-037 and KNOCH-038 are small polish wins to land alongside it. KNOCH-040 is a bigger architectural change deferred to post-launch.
+
+| ID | Title | Status | Branch | Notes |
+|----|-------|--------|--------|-------|
+| [KNOCH-037](tickets/KNOCH-037.md) | SEO Basics — sitemap, robots, Article schema | `⬜` | — | After KNOCH-021 |
+| [KNOCH-038](tickets/KNOCH-038.md) | Custom 404 Page | `⬜` | — | Half-day; can bundle with 037 |
+| [KNOCH-039](tickets/KNOCH-039.md) | Contact Form — real submit + anti-spam (Vercel function + Turnstile + honeypot) | `⬜` | — | **Launch-blocker** |
+| [KNOCH-040](tickets/KNOCH-040.md) | Per-project SEO + Static `/project/<slug>` Routes | `⬜` | — | Post-launch deepening |
 
 ---
 
@@ -173,6 +187,289 @@ CMS layer (cuts across phases — wire each section after it is built):
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-07 — KNOCH-021 PR opened — IN REVIEW
+
+**Action:** PR #30 opened dev → test. Awaiting QA gate.
+**Tickets affected:** KNOCH-021
+**Reason:** Implementation merged to dev (commit 88504b5). PR also carries the bundled `lenis.start()`-on-programmatic-scroll fix (758c925) found during QA, plus the recent dev-only polish that hadn't shipped to test yet (chrome glass mirror on bottom bar, divergent non-homepage glass triggers, contact + inquiry budget tier shift, KNOCH-028 defer bookkeeping). Header counts: In progress 1→0, In review 0→1.
+
+When PR #30 merges, Phase 5 is complete (019 + 020 + 041 + 021 all ✅) and ready for the test → main squash.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-021 merged to dev — awaiting PR open
+
+**Action:** `feature/KNOCH-021-a11y-pass` merged into dev (no-ff). PR to test opens next.
+**Tickets affected:** KNOCH-021
+**Reason:** Accessibility pass complete. Skip-to-content link + `<main id="main-content">` landmark on every page (index, about, portfolio, project, contact); global `prefers-reduced-motion` cascade in `global.css` as a defensive backstop over the existing per-module gates; Lenis itself now respects reduced-motion (hands back to native scroll). Custom cursor swaps to native on Tab. Video lightbox flags `#main-content` as `aria-hidden` while open. Reel cards + portfolio filter tablist both wear the WAI-ARIA keyboard contracts (ArrowLeft/Right/Home/End, roving tabindex, `aria-selected`). Contact form gains `aria-required` on name/email + a hidden `aria-live="polite"` region announcing each step transition. Frame-display counter is now `aria-hidden` site-wide.
+
+A small Lenis fix bundled in (`758c925`): `scrollTo()` now calls `lenis.start()` before issuing programmatic scrolls, so logo / nav clicks from inside the testimonial section (which pauses Lenis for its wheel-paged carousel) actually move the page instead of silently no-op'ing. Surfaced during QA of the a11y work.
+
+Tile-selector native-radio refactor (button[role="radio"] → input[type="radio"]) deferred — current pattern is a valid WAI-ARIA radio implementation with proper aria-checked + radiogroup container, meets AA, and the refactor would be scope creep.
+**Changes:**
+- KNOCH-021: Status 🔵 In progress → 🔵 Merged to dev (still 🔵 until QA gate).
+- Files: 12 src/* changed (+250 lines), plus the Lenis fix and tracking docs.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-021 started — 🔵 IN PROGRESS
+
+**Action:** Cut `feature/KNOCH-021-a11y-pass` from dev to finish Phase 5.
+**Tickets affected:** KNOCH-021
+**Reason:** Final Phase 5 ticket — accessibility pass to complete the polish phase before squashing test → main. Audit (via Explore agent) shows strong ARIA foundations already in place (modals, progress bars, nav landmarks, per-module reduced-motion gates across 17 JS modules + 14 CSS files). Gaps to close in this ticket: skip link + `<main>` landmark on every page, global reduced-motion CSS cascade, Lenis reduced-motion guard, body aria-hidden when video lightbox open, aria-required on form fields, step-transition aria-live region, filter tabs `aria-pressed` → `aria-selected`, frame-display aria-hidden, reel arrow-key navigation, custom-cursor keyboard detection. Tile-selector native-radio refactor (button[role=radio] → input[type=radio]) deferred — current pattern is a valid WAI-ARIA radio implementation and meets AA, refactor is scope creep.
+**Changes:**
+- KNOCH-021: Status ⬜ Open → 🔵 In progress; Branch column populated.
+- Header counts: Open 5→4, In progress 0→1.
+
+**Requested by:** Enoch (defer 28, finish phase 5)
+
+---
+
+### 2026-05-07 — KNOCH-028 deferred — ⏸
+
+**Action:** KNOCH-028 (Wire Services Page to Sanity) marked deferred.
+**Tickets affected:** KNOCH-028
+**Reason:** `getServices()` is already in `src/js/sanity.js:39` and the `service` schema is registered in studio. The remaining ACs require rendering against a services page surface that doesn't exist — the build never created `src/services.html` and the homepage doesn't carry a services section. Matches the pattern of KNOCH-018 / 026 / 029 / 030 where the rendering surface didn't fit the build. Pricing-conversation surface for now is the contact form's budget tiers ($1–3k / $3–5k / $5–8k / $8k+).
+**Changes:**
+- KNOCH-028: Status ⬜ Open → ⏸ Deferred.
+- Header counts: Open 6→5, Deferred 4→5.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-027 merged to test — ✅ DONE
+
+**Action:** PR #29 merged dev → test (regular merge — merge commit 65f2f3d).
+**Tickets affected:** KNOCH-027
+**Reason:** About-page Sanity hydration shipped clean. Wiring covers headline (with `*word*` italic-marker convention), subheadline, bio, headshot (Sanity CDN, lazy + async-decoded, 220px desktop / 160px mobile), specialties pill row, and the years stat (data-count + visible value + aria-label all sync to `yearsExperience`). Init order via `.finally()` guarantees `initAbout()` runs even on Sanity errors. Live API still returns `[]` for `aboutContent` — the static fallback path is the validated render until Enoch publishes the singleton in Studio.
+**Changes:**
+- KNOCH-027: Status 🔵 In review → ✅ Done.
+- Header counts: In review 1→0, Done 24→25.
+- Phase progress: CMS layer now 4/4 active (022 / 023 / 024 / 025 / 027 ✅; 026 / 029 / 030 deferred). KNOCH-028 (services) status review pending — `getServices()` exists in sanity.js but no services.html page in the build to render it on.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-027 PR opened — IN REVIEW
+
+**Action:** PR #29 opened dev → test. Awaiting QA gate.
+**Tickets affected:** KNOCH-027
+**Reason:** Implementation merged to dev (commit ba7d9ec). PR carries the full About-page Sanity hydration (schema register, `getAboutContent()`, `about-cms.js` injection module, init-order chain) + the tracking-doc updates. Header counts shift In progress 1→0, In review 0→1.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-027 merged to dev — awaiting PR open
+
+**Action:** `feature/KNOCH-027-wire-about-sanity` merged into `dev` (no-ff). PR to `test` opens next.
+**Tickets affected:** KNOCH-027
+**Reason:** Implementation complete: `aboutContent` schema registered in `studio/sanity.config.js`, `getAboutContent()` added to `src/js/sanity.js`, and `src/js/about-cms.js` hydrates `.about-hero-headline` (with `*word*` italic-marker convention), `.about-hero-sub`, `.about-intro-body`, an injected headshot figure, an injected specialties pill row, and the `data-stat="years"` stat's `data-count` + visible value + aria-label. CMS init runs before `initAbout()` so the years counter tweens to the CMS target instead of the static 8. Static markup remains the fallback — Sanity API currently returns `[]`, exercising the no-doc path; page renders unchanged.
+**Changes:**
+- KNOCH-027: Status 🔵 In progress → 🔵 Merged to dev (still 🔵 until QA gate).
+- Files: 6 changed, +219 lines (`sanity.config.js`, `sanity.js`, `about-cms.js` new, `about-main.js`, `about.html`, `about.css`).
+
+**Requested by:** Enoch (auto-selected via /implement-ticket)
+
+---
+
+### 2026-05-07 — KNOCH-027 started — 🔵 IN PROGRESS
+
+**Action:** Cut `feature/KNOCH-027-wire-about-sanity` from dev to wire the About page to Sanity.
+**Tickets affected:** KNOCH-027
+**Reason:** With KNOCH-013 (about page) shipped to main and the CMS layer (022/023) live, the About page is the next CMS-wireable surface. Plan: register the existing `aboutContent` singleton schema in `studio/sanity.config.js`, add `getAboutContent()` to `src/js/sanity.js`, and progressively enhance `about.html` so headline / subheadline / bio / headshot / specialties / yearsExperience hydrate from Studio while the static fallback copy stays in the markup.
+**Changes:**
+- KNOCH-027: Status ⬜ Open → 🔵 In progress; Branch column populated.
+- Header counts: Open 7→6, In progress 0→1.
+
+**Requested by:** Enoch (auto-selected via /implement-ticket)
+
+---
+
+### 2026-05-07 — KNOCH-041 merged to test — ✅ DONE
+
+**Action:** PR #27 merged dev → test (regular merge, no squash)
+**Tickets affected:** KNOCH-041
+**Reason:** Mobile sustainable mode passed live device review. The originally-shipped commit (5ae0a27) carried the scroll-tied GSAP gates across hero / frame / portfolio-grid / inquiry / about / contact, plus the back-to-works bfcache fix and the contact sidebar overlap fix. Then a series of post-PR-open polish commits landed on dev and rode along: cutting wasted image fetches on phones (hero slideshow build of 6 → 1 slide, interlude marquee strip hidden, frame .bg-reveal skipped on touch); a hamburger close affordance pass (toggle lifted to position: fixed at z-12000 above the overlay, plus a visible "✕ CLOSE" button inside the overlay); and three iterations on the chrome wordmark / footer logo (logo image with text fallback → bigger logo, drop fallback → drop chrome logo entirely, text wordmark restored at 20 px → footer logo added → footer logo dropped).
+**Changes:**
+- KNOCH-041: Status 🔵 In review → ✅ Done.
+- PR #27 merged at 2026-05-07T05:43:42Z; dev and test now aligned at ed6997c.
+- Header counts updated: In review 1→0, Done 23→24.
+- Phase 5 progress: 3/4 (KNOCH-019 + KNOCH-020 + KNOCH-041 done; KNOCH-021 a11y still open). No squash to main yet — phase rule says only squash after a completed phase.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-041 PR opened — IN REVIEW
+
+**Action:** PR #27 opened dev → test
+**Tickets affected:** KNOCH-041
+**Reason:** Mobile sustainable mode shipped. Strips scroll-tied GSAP work across hero / frame / portfolio-grid / inquiry / about / contact-page modules so touch devices get a static, simple-transition experience. Fixes the two specific bugs flagged on live device review: (1) "Back to works" leaving the project image stuck on screen — tile-router now skips the expanding-tile transition on mobile + has a `pageshow` listener that wipes any leftover overlay clones when Safari restores from bfcache; (2) contact form sidebar overlapping the form region on mobile — CSS rewritten so the active step is `position: relative` and inactive steps `display: none`, letting the form-col size to its real content. About page chapters also stack vertically on mobile (CSS override from `position: absolute; inset: 0` to `position: relative; min-height: 80vh`) since the GSAP scrub timeline no longer runs to scrub between them.
+**Changes:**
+- KNOCH-041: Status IN PROGRESS → IN REVIEW; PR line added.
+- PR #27 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/27
+- Files modified: src/js/hero.js, src/js/frame.js, src/js/portfolio-grid.js, src/js/inquiry.js, src/js/about.js, src/js/contact-page.js, src/js/tile-router.js (mobile gates + bfcache cleanup); src/css/about.css, src/css/contact-page.css (mobile layout overrides).
+- Build: 159 ms; main.js 32.09 kB / 9.97 kB gz; bundle delta nil. Desktop unchanged.
+- Header counts updated: In progress 1→0, In review 0→1.
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-07 — KNOCH-041 created — IN PROGRESS (P0 mobile fix-pass)
+
+**Action:** New ticket; feature branch cut from dev (85564a9)
+**Tickets affected:** KNOCH-041
+**Reason:** Live mobile review of KNOCH-020 found the cinematic stack still breaks on real phones — content not loading, glitchy scroll, transitions stuck on screen. KNOCH-020 gated some scroll-tied animations but missed the long tail (hero scroll-exit, frame parallax, tile-router transition, about chapters, inquiry/contact step transitions). Two specific bugs flagged: back-to-works leaves the project image stuck on screen (likely tile-router clone preserved by bfcache); the contact form's "skip the form" sidebar overlaps the form region under the mobile breakpoint.
+**Changes:**
+- New `docs/tickets/KNOCH-041.md` with the full audit + AC list.
+- TICKET-SUMMARY: Phase 5 table gains a KNOCH-041 row at 🔵 In Progress; header counts Total 34→35, In progress 0→1.
+- Branch `feature/KNOCH-041-mobile-sustainable` cut from dev.
+- Phase 5 polish trio is now KNOCH-019 ✅ + KNOCH-020 ✅ + KNOCH-021 ⬜ + KNOCH-041 🔵 (the last one is essentially a KNOCH-020 follow-up).
+**Requested by:** Enoch (live device review)
+
+---
+
+### 2026-05-07 — Phase 6 added: 4 launch-readiness tickets
+
+**Action:** Created KNOCH-037 → KNOCH-040; new "Phase 6 — Launch & SEO" section in TICKET-SUMMARY.
+**Tickets affected:** KNOCH-037, KNOCH-038, KNOCH-039, KNOCH-040
+**Reason:** Enoch raised three change requests after KNOCH-020 merged — SEO, error pages, anti-spam — and asked for a write-up of what they'd look like as tickets and how to sequence them. Numbers 031–036 were already taken by older tickets / hotfixes, so the new entries land at 037–040. Phase 6 is named "Launch & SEO" and slots in after the Phase 5 polish trio.
+**Changes:**
+- New ticket files:
+  - `KNOCH-037.md` — SEO Basics. Sitemap.xml + robots.txt + per-project Article JSON-LD on /project.html. P1. Cleanly fits after KNOCH-021.
+  - `KNOCH-038.md` — Custom 404 Page. Branded "ROLL ENDED" page with reused chrome, vercel.json wired so unknown routes serve it. P2, half-day.
+  - `KNOCH-039.md` — Contact form real submission + anti-spam. **Launch-blocker** (P0). Recommends Vercel serverless function + Resend for transport, Cloudflare Turnstile + honeypot for anti-spam. /contact.html currently posts to a placeholder.
+  - `KNOCH-040.md` — Per-project SEO + static `/project/<slug>` routes. Build-time render of one HTML per project with per-project og:image, canonical, Article schema. P3, deferred to post-launch.
+- TICKET-SUMMARY: new Phase 6 section after Phase 5; header counts Total 30→34, Open 3→7.
+- Recommended sequencing: KNOCH-021 → KNOCH-039 → KNOCH-037 + KNOCH-038 (could bundle as one PR) → Phase 5 + 6 squash to main → KNOCH-040 post-launch.
+**Requested by:** Enoch (post-KNOCH-020 review)
+
+---
+
+### 2026-05-07 — KNOCH-020 merged to test — ✅ DONE
+
+**Action:** PR #26 merged dev → test (regular merge, no squash)
+**Tickets affected:** KNOCH-020
+**Reason:** Mobile pass passed live review on dev. Hamburger menu shipped on all 5 entries; tap-target sweep complete. Polish bundled into the same PR per pre-merge review: homepage reel went from horizontal scroll-snap to vertical stack on mobile, project-page "Keep looking" section hidden on mobile, scroll-tied "text write" effects (reel-intro per-char cascade + interlude line reveal) gated to desktop, hero meta slate now changes per slide (`A QUIET PORTRAIT` → `A NIGHT OF WORSHIP` → `A NIGERIAN INTRODUCTION` → `A WEDDING IN MAY` → `HUSBAND AND WIFE` → `THE WOODSMEN`).
+**Changes:**
+- KNOCH-020: Status 🔵 In review → ✅ Done.
+- PR #26 merged at 2026-05-07T05:13:54Z; dev and test now aligned at c79c510.
+- Header counts updated: In review 1→0, Done 22→23.
+- Phase 5 progress: 2/3 (KNOCH-019 + KNOCH-020 done; KNOCH-021 a11y still open). No squash to main yet — phase rule says only squash after a completed phase.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-020 PR opened — IN REVIEW
+
+**Action:** PR #26 opened dev → test
+**Tickets affected:** KNOCH-020
+**Reason:** Mobile pass closed. The audit confirmed most sections were already mobile-friendly from individual section tickets — three real gaps closed: (1) hamburger menu — `.nav-center` hides at ≤800 px and the new toggle + full-screen overlay nav replaces it across all 5 entries, with chrome.js cloning the desktop link list into the mobile overlay so there's one source of truth; (2) interlude strip parallax gated on mobile to avoid iOS rubber-band jitter; (3) portfolio.html card labels always-visible on mobile (homepage archive already had this). Plus a tap-target sweep — `.mark`, footer links, and social icons all bumped to ≥44 × 44 (WCAG 2.5.5).
+**Changes:**
+- KNOCH-020: Status IN PROGRESS → IN REVIEW; PR line added.
+- PR #26 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/26
+- Files modified: src/index.html, src/about.html, src/portfolio.html, src/project.html, src/contact.html (toggle + overlay markup); src/css/chrome.css (~150 new lines for toggle + overlay), src/css/footer.css (mobile tap-padding), src/css/portfolio-page.css (mobile card-label visible); src/js/chrome.js (~95 lines for `_initMobileNav`), src/js/interlude.js (mobile gate).
+- Build: 167 ms; main.js 32.09 kB / 9.97 kB gz; bundle delta essentially nil.
+- Header counts updated: In progress 1→0, In review 0→1.
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-07 — KNOCH-020 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-020
+**Reason:** Phase 5 / 2 of 3. Most sections already had mobile breakpoints (chrome / hero / reel CSS-snap / portfolio grid full-width / footer / cursor). Real gaps the audit found: (1) no hamburger menu — `.nav-center` hides at ≤800 px with no replacement, leaving mobile visitors stranded; (2) interlude strip parallax runs on mobile too; (3) tile labels are hover-only, invisible on touch. KNOCH-006 was simplified to a one-shot stagger (not the original word-scrub) so the "scrub → IO fade" AC item is obsolete — current implementation already mobile-friendly.
+**Changes:**
+- Branch `feature/KNOCH-020-mobile` cut from dev (b0f7d3f).
+- KNOCH-020: Status TODO → IN PROGRESS, Branch line added.
+- TICKET-SUMMARY row swapped to 🔵 with branch column filled.
+- Header counts updated: Open 4→3, In progress 0→1.
+**Requested by:** /implement-ticket auto-detect (Enoch)
+
+---
+
+### 2026-05-07 — KNOCH-019 merged to test — ✅ DONE
+
+**Action:** PR #25 merged dev → test (regular merge, no squash)
+**Tickets affected:** KNOCH-019
+**Reason:** Performance pass passed live review on dev. Three pieces landed: (1) WebP image pipeline with the new `scripts/optimize-images.mjs` + runtime URL rewrite in `lazy-load.js` — total assets 16.4 MB → 3.94 MB (-76%), hero LCP 1.96 MB → 39.6 KB (-98%); (2) per-page Open Graph + Twitter cards + LocalBusiness JSON-LD on the homepage; (3) `gsap.ticker.fps(60)` cap. Footer fix bundled in: social row centred, bottom padding bumped so it clears the fixed timecode-bar.
+**Changes:**
+- KNOCH-019: Status 🔵 In review → ✅ Done.
+- PR #25 merged at 2026-05-07T04:42:12Z; dev and test now aligned at 7426f11.
+- Header counts updated: In review 1→0, Done 21→22.
+- Phase 5 progress: 1/3 (KNOCH-019 done; KNOCH-020 mobile + KNOCH-021 a11y still open). No squash to main yet — phase rule says only squash after a completed phase.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-019 PR opened — IN REVIEW
+
+**Action:** PR #25 opened dev → test
+**Tickets affected:** KNOCH-019
+**Reason:** Builder closed the perf pass with three focused improvements. (1) WebP image pipeline: new `scripts/optimize-images.mjs` (sharp, quality 80) generates `.webp` siblings for every JPG/PNG; `lazy-load.js` does runtime WebP detection + URL rewrite; HTML inline backgrounds across `index/about/portfolio` converted to `data-bg`; `hero.js` + `testimonial.js` + `frame.css` updated; LCP preload tags target `.webp`. Total assets 16.4 MB → 3.94 MB (-76%); hero LCP 1.96 MB → 39.6 KB (-98%). (2) Per-page meta + structured data: canonical URLs, Open Graph + Twitter cards on all 5 entries, new 1200×630 og-default.jpg, LocalBusiness JSON-LD on homepage. (3) GSAP frame-budget cap: `gsap.ticker.fps(60)` in `chrome.js` module scope to keep high-refresh-rate displays from doubling animation CPU.
+**Changes:**
+- KNOCH-019: Status IN PROGRESS → IN REVIEW; PR line added to ticket file.
+- PR #25 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/25
+- Files added:
+  - `scripts/optimize-images.mjs` (~120 lines, sharp-based)
+  - `src/public/assets/og/og-default.jpg` (1200×630, 156 KB)
+  - 24 `.webp` siblings under `src/public/assets/`
+  - 4 `.webp` siblings under `src/assets/`
+- Files modified: package.json (sharp devDep + optimize:images npm script), src/index.html, src/about.html, src/portfolio.html, src/project.html, src/contact.html (data-bg + meta + JSON-LD), src/css/frame.css (image-set), src/js/hero.js, src/js/lazy-load.js, src/js/project-page.js, src/js/testimonial.js, src/js/chrome.js (ticker.fps).
+- Build: 57 modules → emit; main 32.04 kB / 9.96 kB gz; main.css 25.23 kB / 5.26 kB gz; 214 ms.
+- Header counts updated: In progress 1→0, In review 0→1.
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-07 — KNOCH-019 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-019
+**Reason:** First ticket of Phase 5 polish trio. Phase 4 just shipped to main; the trio (perf → mobile → a11y) is the launch path. KNOCH-019 covers the perf-specific work that's not already handled by individual component tickets — image optimisation, WebP pipeline, GSAP frame-budget knobs, per-page meta / SEO / structured data. Largest-leverage item is the LCP image (hero `reel-01.png` is 2 MB raw); converting all assets to WebP siblings + serving them via image-set() should be the single biggest mobile-Lighthouse win.
+**Changes:**
+- Branch `feature/KNOCH-019-performance` cut from dev (716bb9f).
+- KNOCH-019: Status TODO → IN PROGRESS, Branch line added to ticket file.
+- TICKET-SUMMARY row swapped to 🔵 with branch column filled.
+- Header counts updated: Open 5→4, In progress 0→1.
+**Requested by:** /implement-ticket auto-detect (Enoch)
+
+---
+
+### 2026-05-07 — Phase 4 SHIPPED — squash-merged to main 🚀
+
+**Action:** test → main squash merge (commit `21bf31c`)
+**Tickets affected:** KNOCH-017 (and the bundled chrome liquid-glass polish on KNOCH-003)
+**Reason:** Phase 4 closed at 1/1 non-deferred. KNOCH-017 (YouTube integration — lightbox `&color=white`, reel cards routing through the lightbox via the new shared `youtube-id.js` parser) landed on test via PR #24 and passed live review on dev. KNOCH-018 (Instagram feed) was deferred earlier in favour of the footer icon link to @knochmedia_, so this single ticket completes Phase 4. The hero PLAY REEL CTA portion of the AC was built and removed in-PR after Enoch's screenshot review — the hero composition is treated as sacred going forward (`feedback_hero_no_extra_ctas.md`). The chrome liquid-glass header polish was also bundled into this squash per Enoch's pre-merge ask — it's a KNOCH-003 follow-up rather than a separate ticket.
+**Changes:**
+- Single squash commit on main covering 12 test commits.
+- KNOCH-017 status flipped IN REVIEW → 🚀 in the ticket file and in the table above.
+- Header counts updated: In review 1→0, Done 20→21. Phase 4 shipped marker added to header line (`Phases 1–3` → `Phases 1–4`).
+- Branch lineage: main `21bf31c` ← squash of test `065c2b0` ← merge of dev (PR #24).
+- Live site (knochmedia.xyz on Vercel) will redeploy from main automatically.
+
+**What's new on main:**
+- YouTube progress bar renders white (not red) inside the lightbox modal.
+- Reel cards with `linkType: 'youtube'` (Sanity-driven) open in the in-place lightbox instead of a new tab.
+- Shared `src/js/youtube-id.js` parser handles youtu.be / watch?v= / embed / shorts URL shapes.
+- Liquid-glass navbar — frosted backdrop fades in once the homepage interlude reaches the top of the viewport; permanent on secondary pages (about / portfolio / project / contact). `mix-blend-mode: difference` returns over the homepage hero so cinematography keeps its inversion treatment.
+
+**Next phase:** Phase 5 polish trio before launch — KNOCH-019 (perf, Lighthouse ≥85 mobile target) → KNOCH-020 (mobile / responsive) → KNOCH-021 (a11y, WCAG 2.1 AA).
+
+**Requested by:** Enoch
 
 ---
 

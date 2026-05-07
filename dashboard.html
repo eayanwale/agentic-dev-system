@@ -127,11 +127,11 @@
   <!-- Stats -->
   <div class="stats">
     <div class="stat">
-      <div class="n" id="stat-total">30</div>
+      <div class="n" id="stat-total">35</div>
       <div class="l">Total tickets</div>
     </div>
     <div class="stat">
-      <div class="n" id="stat-open">5</div>
+      <div class="n" id="stat-open">4</div>
       <div class="l">Open</div>
     </div>
     <div class="stat">
@@ -143,7 +143,7 @@
       <div class="l">In review</div>
     </div>
     <div class="stat">
-      <div class="n green" id="stat-done">20</div>
+      <div class="n green" id="stat-done">25</div>
       <div class="l">Done</div>
     </div>
   </div>
@@ -152,10 +152,10 @@
   <div class="progress-wrap">
     <div class="progress-label">
       <span>Overall progress</span>
-      <span id="pct-label">14 / 30 tickets done</span>
+      <span id="pct-label">24 / 35 tickets done</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" id="progress-fill" style="width:46.7%"></div>
+      <div class="progress-fill" id="progress-fill" style="width:68.6%"></div>
     </div>
   </div>
 
@@ -257,14 +257,14 @@
         <tr>
           <td class="tid">KNOCH-027</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-027.md">Wire About Page to Sanity</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-027-wire-about-sanity</td>
           <td class="tpri p2">P2</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-028</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-028.md">Wire Services Page to Sanity</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td><span class="badge badge-todo" style="background:rgba(237,230,216,0.04);color:rgba(237,230,216,0.3)"><span class="dot" style="background:rgba(237,230,216,0.25)"></span>Deferred</span></td>
           <td class="tbranch">—</td>
           <td class="tpri p2">P2</td>
         </tr>
@@ -417,7 +417,7 @@
         <tr>
           <td class="tid">KNOCH-017</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-017.md">YouTube Integration — Lightbox + Showreel</a></td>
-          <td><span class="badge badge-review"><span class="dot dot-review"></span>In Review</span></td>
+          <td><span class="badge badge-shipped"><span class="dot dot-shipped"></span>Shipped</span></td>
           <td class="tbranch">feature/KNOCH-017-youtube-integration</td>
           <td class="tpri p2">P2</td>
         </tr>
@@ -447,23 +447,78 @@
         <tr>
           <td class="tid">KNOCH-019</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-019.md">Performance Optimization — Images, Build, CWV</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-019-performance</td>
           <td class="tpri p1">P1</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-020</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-020.md">Responsive / Mobile Adaptations</a></td>
-          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
-          <td class="tbranch">—</td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-020-mobile</td>
           <td class="tpri p1">P1</td>
         </tr>
         <tr>
           <td class="tid">KNOCH-021</td>
           <td class="ttitle"><a href="docs/tickets/KNOCH-021.md">Accessibility Pass — WCAG 2.1 AA</a></td>
+          <td><span class="badge badge-review"><span class="dot dot-review"></span>In Review</span></td>
+          <td class="tbranch">feature/KNOCH-021-a11y-pass</td>
+          <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-041</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-041.md">Mobile Sustainable Mode — strip GSAP / Lenis on mobile</a></td>
+          <td><span class="badge badge-pass"><span class="dot dot-pass"></span>QA Passed</span></td>
+          <td class="tbranch">feature/KNOCH-041-mobile-sustainable</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-label">Phase 6 — Launch &amp; SEO</span>
+      <div class="phase-line"></div>
+      <span class="phase-count">4 tickets</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:90px">ID</th>
+        <th>Title</th>
+        <th style="width:140px">Status</th>
+        <th style="width:220px">Branch</th>
+        <th style="width:60px">Priority</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="tid">KNOCH-037</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-037.md">SEO Basics — sitemap, robots, Article schema</a></td>
           <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
           <td class="tbranch">—</td>
           <td class="tpri p1">P1</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-038</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-038.md">Custom 404 Page</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p2">P2</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-039</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-039.md">Contact Form — real submit + anti-spam</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p0">P0</td>
+        </tr>
+        <tr>
+          <td class="tid">KNOCH-040</td>
+          <td class="ttitle"><a href="docs/tickets/KNOCH-040.md">Per-project SEO + static /project/&lt;slug&gt; routes</a></td>
+          <td><span class="badge badge-todo"><span class="dot dot-todo"></span>Todo</span></td>
+          <td class="tbranch">—</td>
+          <td class="tpri p3">P3</td>
         </tr>
       </tbody>
     </table>
@@ -484,10 +539,10 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="https://github.com/eayanwale/knochmedia/pull/24" target="_blank">#24</a></td>
-          <td>feat(KNOCH-017): YouTube integration — lightbox color=white, reel routing, hero PLAY REEL CTA</td>
-          <td>KNOCH-017</td>
-          <td>dev → test</td>
+          <td><a href="https://github.com/eayanwale/knochmedia/pull/30">#30</a></td>
+          <td>KNOCH-021: Accessibility Pass — WCAG 2.1 AA (closes Phase 5)</td>
+          <td>KNOCH-021</td>
+          <td>test</td>
           <td><span class="badge badge-review"><span class="dot dot-review"></span>In Review</span></td>
         </tr>
       </tbody>
@@ -506,8 +561,8 @@
   // Live date
   document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday:'short', year:'numeric', month:'short', day:'numeric' });
 
-  // Progress bar — "done" = merged to test (15 of 30)
-  const total = 30, done = 18;
+  // Progress bar — "done" = merged to test (KNOCH-041 just landed; Phase 5 3/4)
+  const total = 35, done = 24;
   document.getElementById('progress-fill').style.width = (done / total * 100).toFixed(1) + '%';
   document.getElementById('pct-label').textContent = done + ' / ' + total + ' tickets done';
 </script>

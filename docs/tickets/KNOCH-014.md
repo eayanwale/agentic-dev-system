@@ -23,7 +23,7 @@ A dedicated `contact.html` page with a 3-step qualified inquiry form. Not a basi
 - [ ] **Service type selector**: 4 tiles — Wedding, Brand / Commercial, Sports / Event, Portrait / Family — clicking selects (amber border + subtle bg tint); keyboard-navigable
 - [ ] **Date field**: styled date input or custom date picker (dark-themed, no default browser styling)
 - [ ] **Location field**: text input, styled to match dark theme
-- [ ] **Budget selector**: 4 tiers — $3–5k · $5–8k · $8–12k · $12k+ — same tile selector pattern
+- [ ] **Budget selector**: 4 tiers — $1–3k · $3–5k · $5–8k · $8k+ — same tile selector pattern
 - [ ] **Note field**: `<textarea>` with ghost placeholder `"Outdoor ceremony, candid moments, want it to feel like a film not a slideshow…"` — min 3 rows
 - [ ] Continue → button; disabled state until service type is selected
 
