@@ -1,6 +1,6 @@
 # KNOCH-040 — Per-project SEO + Static Project Routes
 
-## Status: IN REVIEW (PR #33)
+## Status: 🚀 SHIPPED — v0.7.0 (commit 0560d37)
 ## Priority: P3 (nice-to-have, post-launch)
 ## Epic: EPIC-006 — Launch & SEO
 

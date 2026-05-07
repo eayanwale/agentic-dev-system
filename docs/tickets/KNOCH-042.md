@@ -1,11 +1,13 @@
-# KNOCH-042 — Wire Portfolio + Archive Grids to Sanity
+# KNOCH-042 — Wire Portfolio Grid to Sanity
 
-## Status: TODO
+> **Scope reduced 2026-05-07:** original scope included the homepage archive grid too, but Enoch confirmed the asymmetric homepage archive is curated/static-by-design and only the works page (`portfolio.html`) needs Sanity wiring. Archive stays hardcoded.
+
+## Status: IN REVIEW (PR #34)
 ## Priority: P1 (high — closes the loop on CMS workflow)
 ## Epic: EPIC-007 — Post-Launch CMS Coverage
 
 ## Title
-Make `galleryCollection` the single source of truth for portfolio + archive tiles, with Sanity → Vercel webhook for auto-deploys
+Make `galleryCollection` the single source of truth for portfolio.html tiles, with Sanity → Vercel webhook for auto-deploys
 
 ## Description
 After Phase 6 launch, the portfolio grid (`portfolio.html`) and homepage archive grid (`index.html`) are still hardcoded HTML tiles backed by `src/js/projects.js` — even though the same data already lives in Sanity's `galleryCollection` collection (powering the homepage reel via KNOCH-025). This means every new client gallery requires a code change + PR + deploy cycle, defeating the purpose of having a CMS.
@@ -23,7 +25,7 @@ No code change. No PR. No `projects.js` to maintain.
 **Build pipeline:**
 - [ ] `scripts/render-projects.mjs` (already exists from KNOCH-040) extended to fetch ALL `galleryCollection` entries from Sanity at build time (existing logic only handles per-project static page emission).
 - [ ] New helper or separate script generates the portfolio grid tiles into `dist/portfolio.html`. Replaces the hardcoded `<article class="portfolio-card">` block delimited by marker comments (e.g., `<!-- KNOCH-042: portfolio tiles BEGIN -->` / `<!-- KNOCH-042: portfolio tiles END -->`) so the static template stays diff-able.
-- [ ] Same pattern for `dist/index.html` archive grid tiles (`#archive` section).
+- [ ] Homepage archive grid in `index.html` (`#archive` section) intentionally stays hardcoded — it's an asymmetric, hand-curated 7-tile layout where each tile's class (t1..t7) drives a specific position. Per Enoch: "everything else can stay as is."
 - [ ] Build script handles Sanity-down case: cache the last successful Sanity fetch in a fallback file (e.g., `.sanity-cache.json` in repo root, gitignored); warn but don't fail the build if Sanity is unreachable.
 
 **Tile-router refactor:**
