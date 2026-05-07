@@ -1,6 +1,6 @@
 # KNOCH-039 — Contact Form: Real Submission via Formspree
 
-## Status: IN REVIEW (bundled into PR #32)
+## Status: 🚀 SHIPPED — Phase 6 squash to main (v0.6.0)
 ## Priority: P0 (launch-blocker)
 ## Epic: EPIC-006 — Launch & SEO
 

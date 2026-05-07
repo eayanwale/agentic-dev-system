@@ -1,6 +1,6 @@
 # KNOCH-037 — SEO Basics
 
-## Status: IN REVIEW
+## Status: 🚀 SHIPPED — Phase 6 squash to main (v0.6.0)
 ## Priority: P1 (high)
 ## Epic: EPIC-006 — Launch & SEO
 

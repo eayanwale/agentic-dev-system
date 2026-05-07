@@ -1,6 +1,6 @@
 # KNOCH-038 — Custom 404 Page
 
-## Status: IN REVIEW (bundled into PR #32 with KNOCH-037)
+## Status: 🚀 SHIPPED — Phase 6 squash to main (v0.6.0)
 ## Priority: P2 (medium)
 ## Epic: EPIC-006 — Launch & SEO
 

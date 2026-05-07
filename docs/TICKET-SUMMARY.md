@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-07 | Total tickets: 35 | Open: 1 | In progress: 0 | In review: 3 | Done: 26 | Deferred: 5 | Phases 1–5 shipped to main 🚀
+> Last updated: 2026-05-07 | Total tickets: 36 | Open: 1 | In progress: 0 | In review: 1 | Done: 29 | Deferred: 5 | Phases 1–6 shipped to main 🚀
 
 ---
 
@@ -107,10 +107,20 @@ Three launch-readiness tickets + one post-launch SEO deepening. KNOCH-039 (form 
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-037](tickets/KNOCH-037.md) | SEO Basics — sitemap, robots, Article schema | `🔵` | `feature/KNOCH-037-seo-basics` | In review — PR #32 dev → test |
-| [KNOCH-038](tickets/KNOCH-038.md) | Custom 404 + 500 Pages | `🔵` | `feature/KNOCH-038-error-pages` | In review — bundled with 037 in PR #32 |
-| [KNOCH-039](tickets/KNOCH-039.md) | Contact form — real submit via Formspree + honeypot | `🔵` | `feature/KNOCH-039-formspree` | In review — bundled into PR #32 (last launch-blocker) |
-| [KNOCH-040](tickets/KNOCH-040.md) | Per-project SEO + Static `/project/<slug>` Routes | `⬜` | — | Post-launch deepening |
+| [KNOCH-037](tickets/KNOCH-037.md) | SEO Basics — sitemap, robots, Article schema | `🚀` | `feature/KNOCH-037-seo-basics` | Shipped — Phase 6 squash to main (v0.6.0) |
+| [KNOCH-038](tickets/KNOCH-038.md) | Custom 404 + 500 Pages | `🚀` | `feature/KNOCH-038-error-pages` | Shipped — Phase 6 squash to main (v0.6.0) |
+| [KNOCH-039](tickets/KNOCH-039.md) | Contact form — real submit via Formspree + honeypot | `🚀` | `feature/KNOCH-039-formspree` | Shipped — Phase 6 squash to main (v0.6.0) |
+| [KNOCH-040](tickets/KNOCH-040.md) | Per-project SEO + Static `/project/<slug>` Routes | `🔵` | `feature/KNOCH-040-static-project-routes` | In review — PR #33 |
+
+---
+
+## Phase 7 — Post-Launch CMS Coverage
+
+Closes the loop on the CMS workflow. Sanity is already wired for testimonials (KNOCH-024), homepage reel (KNOCH-025), and About singleton (KNOCH-027), but portfolio + archive grids and a few About chunks are still hardcoded — every content change needs a code PR. This phase migrates the rest so Enoch's workflow is "edit in Sanity, click publish, live in 2 minutes."
+
+| ID | Title | Status | Branch | Notes |
+|----|-------|--------|--------|-------|
+| [KNOCH-042](tickets/KNOCH-042.md) | Wire Portfolio + Archive Grids to Sanity | `⬜` | — | After KNOCH-040 ships; closes the duplicate-data loop with `projects.js` |
 
 ---
 
@@ -187,6 +197,38 @@ CMS layer (cuts across phases — wire each section after it is built):
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-07 — KNOCH-042 created — Phase 7 kickoff
+
+**Action:** Spun up `docs/tickets/KNOCH-042.md` and added a "Phase 7 — Post-Launch CMS Coverage" section to this summary.
+**Tickets affected:** KNOCH-042 (new)
+**Reason:** Enoch flagged the static portfolio grid as duplicate-data with the existing `galleryCollection` Sanity entries — adding a new client gallery currently requires a code PR even though Sanity already has all the fields. KNOCH-042 migrates the portfolio grid + homepage archive grid to be Sanity-driven at build time, plus wires a Sanity → Vercel webhook so publishing in Studio auto-rebuilds. Closes the CMS workflow loop. Picks up after KNOCH-040 ships.
+**Changes:**
+- Added KNOCH-042 row in new Phase 7 table.
+- Header: Total tickets 35→36, Open 0→1.
+
+**Requested by:** Enoch — "what is the easiest solution here that does not involve coming back here each time"
+
+---
+
+### 2026-05-07 — Phase 6 shipped to main — 🚀 v0.6.0 — site launchable
+
+**Action:** Squash-merged test → main (commit 9afec52). Tag `v0.6.0` pushed; GitHub release published. Site is **launchable** once Vercel auto-deploy from main lands and Sanity CORS allowlist includes `https://knoch.media`.
+**Tickets affected:** KNOCH-037, KNOCH-038, KNOCH-039
+**Reason:** All Phase 6 launch-prep work QA'd in test and shipped together: SEO basics (sitemap + robots + Article JSON-LD on project pages), custom 404 + 500 error pages, Formspree-wired contact form (with honeypot) on both contact page and homepage inquiry CTA, plus the operative domain swap from `knochmedia.xyz` → `knoch.media` and the email split (public `hello@` vs personal `enoch@`). KNOCH-039 was the last launch-blocker — site can now actually deliver inquiries.
+**Changes:**
+- KNOCH-037 / 038 / 039: Status 🔵 In review → 🚀 Shipped.
+- Header counts: In review 3→0, Done 26→29. Phase tag in header bumped 1–5 → 1–6.
+
+**Operator queue still active (not gating launch):**
+- Sanity CORS: add `https://knoch.media` at sanity.io/manage/personal/project/2779g58e/api → CORS Origins (testimonials / reel / portfolio fail without this)
+- Zoho: confirm `hello@knoch.media` alias on existing user
+- Formspree: optionally swap account email to `hello@knoch.media`
+- Vercel: confirm `knoch.media` is in project Settings → Domains
+
+**Requested by:** Enoch — "push to main, then try again"
 
 ---
 
