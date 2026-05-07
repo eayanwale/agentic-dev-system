@@ -1,6 +1,6 @@
 # KNOCH-012 — Project Detail View
 
-## Status: IN REVIEW
+## Status: SHIPPED — Phase 3 squash to main
 ## Priority: P2 (medium)
 ## Epic: EPIC-003 — Secondary Pages
 ## Branch: feature/KNOCH-012-project-detail-lightbox

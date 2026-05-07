@@ -1,6 +1,6 @@
 # KNOCH-014 — Contact / Inquiry Flow (Multi-Step Qualified Form)
 
-## Status: IN REVIEW
+## Status: SHIPPED — Phase 3 squash to main
 ## Priority: P1 (high)
 ## Epic: EPIC-003 — Secondary Pages
 ## Branch: feature/KNOCH-014-contact-form

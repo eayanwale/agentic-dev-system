@@ -1,6 +1,6 @@
 # KNOCH-005 — Hero Section: Loader + Reveal Sequence
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 2 squash to main
 ## Priority: P0 (critical)
 ## Epic: EPIC-002 — Homepage
 

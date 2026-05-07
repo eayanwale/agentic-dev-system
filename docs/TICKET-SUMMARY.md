@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-06 | Total tickets: 30 | Open: 6 | In progress: 0 | In review: 1 | Done: 19 | Deferred: 4
+> Last updated: 2026-05-06 | Total tickets: 30 | Open: 5 | In progress: 0 | In review: 1 | Done: 20 | Deferred: 4 | Phases 1–3 shipped to main 🚀
 
 ---
 
@@ -24,11 +24,11 @@ These must be completed before any other ticket can be built. No component shoul
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-001](tickets/KNOCH-001.md) | Project Scaffolding & Build Setup (Vite) | `✅` | `feature/KNOCH-001-project-scaffold` | Entry point for all other work |
-| [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `✅` | `feature/KNOCH-002-design-tokens` | QA PASSED — merged to test |
-| [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `✅` | `feature/KNOCH-016-lenis-smooth-scroll` | QA PASSED — merged to test |
-| [KNOCH-003](tickets/KNOCH-003.md) | Cinematic Chrome Navigation + Timecode Bar | `✅` | `feature/KNOCH-003-chrome-navigation` | QA PASSED — merged to test |
-| [KNOCH-004](tickets/KNOCH-004.md) | Custom Cursor & Film-Grain Overlay | `✅` | `feature/KNOCH-004-cursor-film-grain` | QA PASSED — merged to test |
+| [KNOCH-001](tickets/KNOCH-001.md) | Project Scaffolding & Build Setup (Vite) | `🚀` | `feature/KNOCH-001-project-scaffold` | Shipped — Phase 1 squash to main |
+| [KNOCH-002](tickets/KNOCH-002.md) | Design Tokens & CSS Custom Properties | `🚀` | `feature/KNOCH-002-design-tokens` | Shipped — Phase 1 squash to main |
+| [KNOCH-016](tickets/KNOCH-016.md) | Smooth Scrolling — Lenis + ScrollTrigger Sync | `🚀` | `feature/KNOCH-016-lenis-smooth-scroll` | Shipped — Phase 1 squash to main |
+| [KNOCH-003](tickets/KNOCH-003.md) | Cinematic Chrome Navigation + Timecode Bar | `🚀` | `feature/KNOCH-003-chrome-navigation` | Shipped — Phase 1 squash to main |
+| [KNOCH-004](tickets/KNOCH-004.md) | Custom Cursor & Film-Grain Overlay | `🚀` | `feature/KNOCH-004-cursor-film-grain` | Shipped — Phase 1 squash to main |
 
 ---
 
@@ -56,12 +56,12 @@ Build top-to-bottom in scroll order. Wire each section to Sanity immediately aft
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-005](tickets/KNOCH-005.md) | Hero — Film Counter Loader + Reveal Sequence | `✅` | `feature/KNOCH-005-hero-section` | QA PASSED — merged to test. Hero images stay static. |
-| [KNOCH-006](tickets/KNOCH-006.md) | Interlude — Word-by-Word Scroll Reveal | `✅` | `feature/KNOCH-006-interlude-manifesto` | QA PASSED — merged to test |
-| [KNOCH-007](tickets/KNOCH-007.md) | Horizontal Reel — Pinned Scroll Carousel | `✅` | `feature/KNOCH-007-horizontal-reel` | Sanity-driven (3 featured collections); cinematic full-greyscale filter; inner parallax; KNOCH-025 included |
-| [KNOCH-008](tickets/KNOCH-008.md) | Pinned Frame — Parallax + Animated Counters | `✅` | `feature/KNOCH-008-pinned-frame` | QA PASSED — merged to test |
-| [KNOCH-009](tickets/KNOCH-009.md) | Testimonial Pull-Quote Section | `✅` | `feature/KNOCH-009-testimonial-section` | QA PASSED — merged to test |
-| [KNOCH-010](tickets/KNOCH-010.md) | Portfolio Grid — Asymmetric 12-Col Archive | `✅` | `feature/KNOCH-010-portfolio-grid` | QA PASSED — merged to test |
+| [KNOCH-005](tickets/KNOCH-005.md) | Hero — Film Counter Loader + Reveal Sequence | `🚀` | `feature/KNOCH-005-hero-section` | Shipped — Phase 2 squash to main (hero images stay static) |
+| [KNOCH-006](tickets/KNOCH-006.md) | Interlude — Word-by-Word Scroll Reveal | `🚀` | `feature/KNOCH-006-interlude-manifesto` | Shipped — Phase 2 squash to main |
+| [KNOCH-007](tickets/KNOCH-007.md) | Horizontal Reel — Pinned Scroll Carousel | `🚀` | `feature/KNOCH-007-horizontal-reel` | Shipped — Phase 2 squash to main (Sanity-driven, KNOCH-025 included) |
+| [KNOCH-008](tickets/KNOCH-008.md) | Pinned Frame — Parallax + Animated Counters | `🚀` | `feature/KNOCH-008-pinned-frame` | Shipped — Phase 2 squash to main |
+| [KNOCH-009](tickets/KNOCH-009.md) | Testimonial Pull-Quote Section | `🚀` | `feature/KNOCH-009-testimonial-section` | Shipped — Phase 2 squash to main |
+| [KNOCH-010](tickets/KNOCH-010.md) | Portfolio Grid — Asymmetric 12-Col Archive | `🚀` | `feature/KNOCH-010-portfolio-grid` | Shipped — Phase 2 squash to main |
 
 ---
 
@@ -71,11 +71,11 @@ Build in this order: About → Portfolio page → Project detail → Contact →
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-013](tickets/KNOCH-013.md) | About / Story Section (about.html) | `✅` | `feature/KNOCH-013-about-story-section` | QA PASSED — merged to test |
-| [KNOCH-011](tickets/KNOCH-011.md) | Portfolio Filter System (portfolio.html) | `✅` | `feature/KNOCH-011-portfolio-filter` | QA PASSED — merged to test |
-| [KNOCH-012](tickets/KNOCH-012.md) | Project Detail View + Video Lightbox | `✅` | `feature/KNOCH-012-project-detail-lightbox` | PR #21 merged + KNOCH-036 polish bundled |
-| [KNOCH-014](tickets/KNOCH-014.md) | Contact — Multi-Step Qualified Inquiry Form | `✅` | `feature/KNOCH-014-contact-form` | PR #22 merged to test |
-| [KNOCH-015](tickets/KNOCH-015.md) | Footer — Credits Bar + Sitemap Variant | `🔵` | `feature/KNOCH-015-footer` | PR #23 — In review (dev → test) |
+| [KNOCH-013](tickets/KNOCH-013.md) | About / Story Section (about.html) | `🚀` | `feature/KNOCH-013-about-story-section` | Shipped — Phase 3 squash to main |
+| [KNOCH-011](tickets/KNOCH-011.md) | Portfolio Filter System (portfolio.html) | `🚀` | `feature/KNOCH-011-portfolio-filter` | Shipped — Phase 3 squash to main |
+| [KNOCH-012](tickets/KNOCH-012.md) | Project Detail View + Video Lightbox | `🚀` | `feature/KNOCH-012-project-detail-lightbox` | Shipped — Phase 3 squash to main (KNOCH-036 polish included) |
+| [KNOCH-014](tickets/KNOCH-014.md) | Contact — Multi-Step Qualified Inquiry Form | `🚀` | `feature/KNOCH-014-contact-form` | Shipped — Phase 3 squash to main |
+| [KNOCH-015](tickets/KNOCH-015.md) | Footer — Credits Bar + Sitemap Variant | `🚀` | `feature/KNOCH-015-footer` | Shipped — Phase 3 squash to main (PR #23 + release squash) |
 
 ---
 
@@ -83,7 +83,7 @@ Build in this order: About → Portfolio page → Project detail → Contact →
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-017](tickets/KNOCH-017.md) | YouTube Integration — Lightbox + Showreel | `⬜` | — | Lazy iframe inject on click |
+| [KNOCH-017](tickets/KNOCH-017.md) | YouTube Integration — Lightbox + Showreel | `🔵` | `feature/KNOCH-017-youtube-integration` | Lazy iframe inject on click |
 | [KNOCH-018](tickets/KNOCH-018.md) | Instagram Feed Integration | `⏸` | — | Deferred — footer icon link covers it |
 
 ---
@@ -173,6 +173,102 @@ CMS layer (cuts across phases — wire each section after it is built):
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-06 — KNOCH-017 hero PLAY REEL CTA descoped (still IN REVIEW)
+
+**Action:** Hero CTA portion of KNOCH-017 dropped post-review; lightbox + reel-routing portions kept
+**Tickets affected:** KNOCH-017
+**Reason:** Enoch reviewed the freshly-pushed hero CTA in the browser, screenshotted it, and rejected immediately: "remove that youtube section. it is ruining the hero." The dark `maxresdefault.jpg` thumbnail competed with the moody hero backdrop and broke the headline → SCROLL-prompt cinematic pacing. The other two KNOCH-017 deliverables — `&color=white` on the lightbox iframe URL, and reel cards routing through the lightbox instead of opening in a new tab — stand. The lightbox itself is still reachable from every video tile, reel card, and project-page CTA, so removing the hero entry point doesn't strand any video; visitors still have multiple cinematic paths to play any film.
+**Changes:**
+- src/index.html: `<button class="hero-reel">` markup + `<link rel="stylesheet" href="/css/hero-reel.css">` removed; hero composition restored to its KNOCH-005 shape (meta → headline → SCROLL prompt).
+- src/js/main.js: `initHeroReel` import + call removed.
+- src/js/hero.js: opacity tween for `.hero-reel` removed from the reveal timeline.
+- src/css/hero-reel.css: deleted (was new in this PR — never reached test).
+- src/js/hero-reel.js: deleted (same).
+- docs/tickets/KNOCH-017.md: Showreel-section AC items struck through with a 2026-05-06 DESCOPED note; rationale + reference to feedback memory recorded.
+- New auto-memory: `feedback_hero_no_extra_ctas.md` — never insert CTAs / video chips / chrome between the hero headline and the SCROLL prompt; the cinematic pacing is the whole composition.
+- PR #24 auto-updates from dev — no PR re-open needed.
+**Requested by:** Enoch (live screenshot review)
+
+---
+
+### 2026-05-06 — KNOCH-017 PR opened — IN REVIEW
+
+**Action:** PR #24 opened dev → test
+**Tickets affected:** KNOCH-017
+**Reason:** Builder closed the three remaining KNOCH-017 acceptance gaps left by KNOCH-012's lightbox base. (1) `&color=white` added to the YouTube iframe URL so the player progress bar renders white instead of red. (2) Reel cards with `linkType: 'youtube'` now route through `openVideoLightbox()` instead of opening in a new tab — new shared parser `src/js/youtube-id.js` extracts the 11-char ID from any youtu.be / watch?v= / embed / shorts URL. (3) New cinematic PLAY REEL CTA in the hero — bordered card overlaid on the showreel's YouTube `maxresdefault.jpg`, with the chrome details lifted from the cinema-vérité reference (`▢ 16:9 · 24FPS` chip top-left, `TC 00:01:42:11` top-right, 40 px play ring centre, bordered `▶ PLAY REEL` chip bottom-right). Default video is Hs25JK7WcZQ (Rapha Records — the studio's brand introduction film); swap by editing `data-youtube-id` on the `.hero-reel` button.
+**Changes:**
+- KNOCH-017: Status IN PROGRESS → IN REVIEW; PR line added to the ticket file.
+- PR #24 opened: dev → test at https://github.com/eayanwale/knochmedia/pull/24
+- Files delivered:
+  - `src/js/youtube-id.js` — new ~65-line parser; bare-ID short-circuit + URL-shape branching
+  - `src/js/hero-reel.js` — new ~55-line module; thumbnail probe + click handler
+  - `src/css/hero-reel.css` — new ~165-line stylesheet; button + chrome overlays + reduced-motion + ≤800px mobile
+  - `src/js/video-lightbox.js` — `&color=white` added to iframe URL + comment block documenting all params
+  - `src/js/reel.js` — `handleCardClick` rewritten as a clean three-branch router (youtube → lightbox, external-gallery → new tab, default → same-tab)
+  - `src/js/hero.js` — opacity tween for `.hero-reel` at offset 1.4 in the reveal timeline (same beat as `#hero-sub`)
+  - `src/js/main.js` — `initHeroReel()` import + call after `initHero()`
+  - `src/index.html` — `<link rel="stylesheet" href="/css/hero-reel.css">` + `<button class="hero-reel" data-youtube-id="Hs25JK7WcZQ">…</button>` with chrome spans
+- Build: 87 modules → emit; main 32.59 kB / 10.12 kB gz; main.css 27.38 kB; 166 ms.
+- Header counts updated: In progress 1→0, In review 0→1.
+**Requested by:** Builder agent
+
+---
+
+### 2026-05-06 — KNOCH-017 implementation started — IN PROGRESS
+
+**Action:** Feature branch created; implementation in progress
+**Tickets affected:** KNOCH-017
+**Reason:** First ticket of Phase 4. The lightbox modal itself was built under KNOCH-012 and is already wired through tile-router.js for archive tiles, portfolio cards, and the project-page CTA — KNOCH-017 closes the remaining gaps: (1) honour the `color=white` AC param on the iframe URL, (2) route reel cards with `linkType: 'youtube'` through the lightbox instead of opening a new tab, (3) add the "PLAY REEL" hero CTA with cinematic chrome (`▢ 16:9 · 24FPS` + `TC` overlay + maxresdefault thumbnail) per the cinema-vérité reference.
+**Changes:**
+- Branch `feature/KNOCH-017-youtube-integration` cut from dev (a6dabb4).
+- KNOCH-017: Status TODO → IN PROGRESS, Branch line added to ticket file.
+- TICKET-SUMMARY row swapped to 🔵 with branch column filled.
+- Header counts updated: Open 6→5, In progress 0→1.
+**Requested by:** /implement-ticket auto-detect (Enoch)
+
+---
+
+### 2026-05-06 — Phase 1 + Phase 2 status backfilled to SHIPPED 🚀
+
+**Action:** Bookkeeping flip — 11 ticket files + table rows + dashboard badges
+**Tickets affected:** Phase 1 — KNOCH-001, KNOCH-002, KNOCH-003, KNOCH-004, KNOCH-016. Phase 2 — KNOCH-005, KNOCH-006, KNOCH-007, KNOCH-008, KNOCH-009, KNOCH-010.
+**Reason:** Phase 1 (squashed to main as `676f2bd` / `e2a0549`) and Phase 2 (squashed to main as `f14c0c1`) both reached production weeks ago, but their trackers were still showing `✅ QA Passed` instead of the `🚀 Shipped` state introduced when Phase 3 closed. This entry brings the trackers in line with reality so all three completed phases read consistently.
+**Changes:**
+- 11 ticket files: Status `QA PASSED` (or `DONE — merged to test` for KNOCH-007) → `SHIPPED — Phase 1 squash to main` / `SHIPPED — Phase 2 squash to main`.
+- TICKET-SUMMARY.md Phase 1 + Phase 2 table rows: `✅` → `🚀` with shipped notes; ticket-flavour details preserved (KNOCH-005 hero static, KNOCH-007 Sanity + KNOCH-025).
+- Header line: `Phase 3 shipped to main 🚀` → `Phases 1–3 shipped to main 🚀`.
+- dashboard.html: 11 row badges flipped `QA Passed` → `Shipped` (badge-pass → badge-shipped).
+- Counts unchanged: 🚀 already counts under "Done" so totals (Done: 20) stay the same.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-06 — Phase 3 SHIPPED — squash-merged to main 🚀
+
+**Action:** test → main squash merge (commit `30da046`)
+**Tickets affected:** KNOCH-011, KNOCH-012, KNOCH-013, KNOCH-014, KNOCH-015 (and the bundled KNOCH-036 polish pass)
+**Reason:** Phase 3 closed at 5/5. The five secondary-page tickets plus the polish bundle landed on test in sequence and all passed live review on dev — the squash to main is the phase-milestone commit that takes the site from "homepage only" to "full multi-page studio site."
+**Changes:**
+- Single squash commit on main covering 50+ test commits.
+- All five Phase 3 ticket statuses flipped ✅ → 🚀 in their ticket files and in the table above.
+- Header counts updated: In review 1→0, Done 19→20. Phase 3 shipped marker added to header line.
+- Branch lineage: main `30da046` ← squash of test `5037e92` ← merge of dev (PR #23 + earlier).
+- Live site (knochmedia.xyz on Vercel) will redeploy from main automatically.
+
+**What's on main now:**
+- /index.html — homepage with hero, interlude, reel, frame, testimonials, archive, inquiry CTA, footer (minimal)
+- /about.html — pinned chapter narrative, How-We-Work, footer (expanded)
+- /portfolio.html — filter tabs (Weddings / Brand / Music), URL-hash sync, Load-more, footer (expanded)
+- /project.html — runtime URL-param renderer, sticky metadata, "Keep looking" reel, footer (expanded)
+- /contact.html — 3-step inquiry form, scarcity banner, ?type= pre-fill, Calendly sidebar, footer (expanded)
+
+**Next phase:** KNOCH-017 (YouTube integration) is the only un-deferred Phase 4 ticket. Then Phase 5 polish trio (KNOCH-019 perf → KNOCH-020 mobile → KNOCH-021 a11y) before launch.
+
+**Requested by:** Enoch
 
 ---
 

@@ -1,6 +1,6 @@
 # KNOCH-003 — Cinematic Chrome Navigation
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 1 squash to main
 ## Priority: P0 (critical)
 ## Epic: EPIC-001 — Foundation
 

@@ -1,6 +1,6 @@
 # KNOCH-010 — Portfolio Grid (The Archive)
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 2 squash to main
 ## Priority: P1 (high)
 ## Epic: EPIC-002 — Homepage
 

@@ -1,6 +1,6 @@
 # KNOCH-001 — Project Scaffolding & Build Setup
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 1 squash to main
 ## Priority: P0 (critical)
 ## Epic: EPIC-001 — Foundation
 

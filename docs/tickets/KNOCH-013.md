@@ -1,6 +1,6 @@
 # KNOCH-013 — About / Story Section
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 3 squash to main
 ## Priority: P2 (medium)
 ## Epic: EPIC-003 — Secondary Pages
 ## Branch: feature/KNOCH-013-about-story-section

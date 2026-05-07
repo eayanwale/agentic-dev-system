@@ -1,6 +1,6 @@
 # KNOCH-007 — Horizontal Reel: Scroll-Hijacked Portfolio Carousel
 
-## Status: DONE — merged to test (2026-05-05)
+## Status: SHIPPED — Phase 2 squash to main
 ## Branch: feature/KNOCH-007-horizontal-reel
 ## Priority: P0 (critical)
 ## Epic: EPIC-002 — Homepage

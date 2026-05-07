@@ -1,6 +1,6 @@
 # KNOCH-004 — Custom Cursor & Film-Grain Overlay
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 1 squash to main
 ## Priority: P1 (high)
 ## Epic: EPIC-001 — Foundation
 

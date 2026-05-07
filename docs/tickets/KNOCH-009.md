@@ -1,6 +1,6 @@
 # KNOCH-009 — Testimonial Section
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 2 squash to main
 ## Priority: P2 (medium)
 ## Epic: EPIC-002 — Homepage
 

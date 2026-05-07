@@ -1,6 +1,8 @@
 # KNOCH-017 — YouTube Integration
 
-## Status: TODO
+## Status: IN REVIEW
+## Branch: feature/KNOCH-017-youtube-integration
+## PR: https://github.com/eayanwale/knochmedia/pull/24
 ## Priority: P2 (medium)
 ## Epic: EPIC-004 — Integrations
 
@@ -22,11 +24,11 @@ Knoch Media's current site (knochmedia.xyz) features YouTube videos — wedding 
 - [ ] Triggered from: tile `.t7` (The Hartleys trailer), reel card `FRAME 06` (UMD Athletics if it has film)
 - [ ] Each trigger element has `data-youtube-id="XXXXXXXXXXX"` attribute
 
-**Showreel section (hero or films section):**
-- [ ] A "Play showreel" button in the hero sub-text or CTA section
-- [ ] Clicking opens the same lightbox modal with the main channel reel video ID
-- [ ] The button has a play icon (inline SVG) and `"PLAY REEL"` text in mono uppercase
-- [ ] YouTube thumbnail preview shown as background image on the play button (fetched via `img.youtube.com/vi/{id}/maxresdefault.jpg`)
+**Showreel section (hero or films section):** — DESCOPED 2026-05-06
+- [~] ~~A "Play showreel" button in the hero sub-text or CTA section~~ — built and rejected; cinematic-chrome card with `▢ 16:9 · 24FPS` chip, `TC 00:01:42:11`, 40 px play ring, and bordered `▶ PLAY REEL` chip overlaid on the showreel `maxresdefault.jpg`. Enoch screenshotted the result and called it: "remove that youtube section. it is ruining the hero." The dark thumbnail competed with the moody hero backdrop and the button broke the headline → SCROLL prompt cinematic pacing. The hero composition is treated as sacred going forward (see `feedback_hero_no_extra_ctas.md`). The lightbox itself is still reachable from every video tile + reel card + project-page CTA, so dropping this hero entry point doesn't take any video off the site — the visitor still has multiple cinematic paths to play any film.
+- [~] ~~Same lightbox open on click~~ (would have used `Hs25JK7WcZQ` Rapha Records as the showreel)
+- [~] ~~Play icon + "PLAY REEL" mono caps~~
+- [~] ~~maxresdefault thumbnail as bg-image with hqdefault fallback~~
 
 **Performance:**
 - [ ] NO YouTube iframe loaded on page load — only injected on click

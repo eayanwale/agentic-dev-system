@@ -1,6 +1,6 @@
 # KNOCH-008 — Pinned Frame: Full-Bleed Parallax + Animated Studio Stats
 
-## Status: QA PASSED
+## Status: SHIPPED — Phase 2 squash to main
 ## Priority: P1 (high)
 ## Epic: EPIC-002 — Homepage
 
