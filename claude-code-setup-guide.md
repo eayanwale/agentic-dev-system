@@ -48,7 +48,7 @@ This is the most important file. It tells Claude Code how to behave in your proj
 # Knoch Photography Portfolio — Project Rules
 
 ## Project Overview
-Building a premium, Awwwards-level photography portfolio for Knoch Media (knochmedia.xyz).
+Building a premium, Awwwards-level photography portfolio for Knoch Media (knoch.media).
 Two reference HTML mockups are in `src/reference/` — the cinematic dark experience and the minimal Aperture concept.
 Design PDF and visual assets are in `src/design/`.
 The final site should merge the best of both into a cohesive, story-driven portfolio.

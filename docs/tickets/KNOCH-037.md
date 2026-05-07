@@ -1,6 +1,6 @@
 # KNOCH-037 — SEO Basics
 
-## Status: TODO
+## Status: IN REVIEW
 ## Priority: P1 (high)
 ## Epic: EPIC-006 — Launch & SEO
 
@@ -15,7 +15,7 @@ KNOCH-019 covered the per-page meta basics (canonical URLs, Open Graph, Twitter 
 **Sitemap + robots:**
 - [ ] `src/public/sitemap.xml` lists every static entry: `/`, `/about.html`, `/portfolio.html`, `/contact.html`. Project-detail URLs are NOT included here — they're query-string driven (`?id=…`); KNOCH-040 covers static project routes and adds them then.
 - [ ] Each entry has `<loc>`, `<lastmod>` (yyyy-mm-dd), and a sensible `<priority>` (homepage 1.0, others 0.8).
-- [ ] `src/public/robots.txt` allows all user-agents and references the sitemap URL: `Sitemap: https://knochmedia.xyz/sitemap.xml`.
+- [ ] `src/public/robots.txt` allows all user-agents and references the sitemap URL: `Sitemap: https://knoch.media/sitemap.xml`.
 - [ ] Both files served at root (`/sitemap.xml`, `/robots.txt`) — Vite already serves `src/public/` as the static root.
 
 **Article schema on /project.html:**

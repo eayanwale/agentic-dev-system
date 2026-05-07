@@ -1,6 +1,6 @@
 # KNOCH-020 — Responsive / Mobile Adaptations
 
-## Status: DONE — merged to test (2026-05-07)
+## Status: 🚀 SHIPPED — Phase 5 squash to main (v0.5.0)
 ## Branch: feature/KNOCH-020-mobile
 ## PR: https://github.com/eayanwale/knochmedia/pull/26 (merged)
 ## Priority: P1 (high)

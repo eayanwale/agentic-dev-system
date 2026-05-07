@@ -40,9 +40,9 @@ A dedicated `contact.html` page with a 3-step qualified inquiry form. Not a basi
 
 **Sidebar (right panel):**
 - [ ] `"— Or skip the form"` amber label
-- [ ] `"Book a 15-min call"` heading + short explanation copy
+- [ ] `"Book a 30-min call"` heading + short explanation copy
 - [ ] `"Pick a time on my calendar →"` button (Calendly link — to be configured)
-- [ ] `"What happens next"` numbered steps: 01 reply within 24hrs, 02 15-min call, 03 custom proposal in 48hrs
+- [ ] `"What happens next"` numbered steps: 01 reply within 24hrs, 02 30-min call, 03 custom proposal in 48hrs
 - [ ] Direct contact: phone `240.714.6933`, email `enoch@knochmedia.com`
 
 **Form behavior:**

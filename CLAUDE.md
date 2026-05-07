@@ -1,8 +1,8 @@
 # Knoch Photography Portfolio — Project Rules
 
 ## Project Overview
-Building a premium, Awwwards-level photography portfolio for Knoch Media (knochmedia.xyz).
-Two reference HTML mockups are in `src/reference/` — the cinematic dark experience and the minimal Aperture concept.
+Building a premium, Awwwards-level photography portfolio for Knoch Media (knoch.media).
+Two reference HTML mockups are in `reference/` (repo root) — the cinematic dark experience and the minimal Aperture concept. The folder lives outside `src/` so Vite never touches it; it's reference material in git, not part of the build.
 The final site should merge the best of both into a cohesive, story-driven portfolio.
 
 ## Tech Stack

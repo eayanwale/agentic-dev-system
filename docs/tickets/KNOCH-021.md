@@ -1,6 +1,6 @@
 # KNOCH-021 — Accessibility Pass
 
-## Status: IN REVIEW
+## Status: 🚀 SHIPPED — Phase 5 squash to main (v0.5.0)
 ## Priority: P1 (high)
 ## Epic: EPIC-005 — Polish & Ship
 

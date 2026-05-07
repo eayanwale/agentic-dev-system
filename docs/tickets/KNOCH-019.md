@@ -1,6 +1,6 @@
 # KNOCH-019 — Performance Optimization
 
-## Status: DONE — merged to test (2026-05-07)
+## Status: 🚀 SHIPPED — Phase 5 squash to main (v0.5.0)
 ## Branch: feature/KNOCH-019-performance
 ## PR: https://github.com/eayanwale/knochmedia/pull/25 (merged)
 ## Priority: P1 (high)

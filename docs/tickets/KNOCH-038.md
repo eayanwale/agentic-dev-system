@@ -1,6 +1,6 @@
 # KNOCH-038 — Custom 404 Page
 
-## Status: TODO
+## Status: IN REVIEW (bundled into PR #32 with KNOCH-037)
 ## Priority: P2 (medium)
 ## Epic: EPIC-006 — Launch & SEO
 

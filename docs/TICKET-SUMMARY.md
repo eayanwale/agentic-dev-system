@@ -1,7 +1,7 @@
 # Knoch Media — Ticket Summary
 
 > **Living document.** Updated whenever tickets are created, modified, split, or closed.  
-> Last updated: 2026-05-07 | Total tickets: 35 | Open: 4 | In progress: 0 | In review: 1 | Done: 25 | Deferred: 5 | Phases 1–4 shipped to main 🚀
+> Last updated: 2026-05-07 | Total tickets: 35 | Open: 1 | In progress: 0 | In review: 3 | Done: 26 | Deferred: 5 | Phases 1–5 shipped to main 🚀
 
 ---
 
@@ -94,10 +94,10 @@ Run in this exact order: perf first (changes markup), then mobile (tests perf ch
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-019](tickets/KNOCH-019.md) | Performance Optimization — Images, Build, CWV | `✅` | `feature/KNOCH-019-performance` | Done — merged to test (PR #25 + footer polish bundled); Lighthouse verification pending |
-| [KNOCH-020](tickets/KNOCH-020.md) | Responsive / Mobile Adaptations | `✅` | `feature/KNOCH-020-mobile` | Done — merged to test (PR #26 + reel-vertical / project-others-hide / per-slide hero meta polish bundled) |
-| [KNOCH-021](tickets/KNOCH-021.md) | Accessibility Pass — WCAG 2.1 AA | `🔵` | `feature/KNOCH-021-a11y-pass` | In review — PR #30 dev → test (closes Phase 5) |
-| [KNOCH-041](tickets/KNOCH-041.md) | Mobile Sustainable Mode — strip GSAP / Lenis / scroll-driven animation | `✅` | `feature/KNOCH-041-mobile-sustainable` | Done — merged to test (PR #27 + image culling + chrome wordmark + hamburger close polish bundled) |
+| [KNOCH-019](tickets/KNOCH-019.md) | Performance Optimization — Images, Build, CWV | `🚀` | `feature/KNOCH-019-performance` | Shipped — Phase 5 squash to main (v0.5.0) |
+| [KNOCH-020](tickets/KNOCH-020.md) | Responsive / Mobile Adaptations | `🚀` | `feature/KNOCH-020-mobile` | Shipped — Phase 5 squash to main (v0.5.0) |
+| [KNOCH-021](tickets/KNOCH-021.md) | Accessibility Pass — WCAG 2.1 AA | `🚀` | `feature/KNOCH-021-a11y-pass` | Shipped — Phase 5 squash to main (v0.5.0) |
+| [KNOCH-041](tickets/KNOCH-041.md) | Mobile Sustainable Mode — strip GSAP / Lenis / scroll-driven animation | `🚀` | `feature/KNOCH-041-mobile-sustainable` | Shipped — Phase 5 squash to main (v0.5.0) |
 
 ---
 
@@ -107,9 +107,9 @@ Three launch-readiness tickets + one post-launch SEO deepening. KNOCH-039 (form 
 
 | ID | Title | Status | Branch | Notes |
 |----|-------|--------|--------|-------|
-| [KNOCH-037](tickets/KNOCH-037.md) | SEO Basics — sitemap, robots, Article schema | `⬜` | — | After KNOCH-021 |
-| [KNOCH-038](tickets/KNOCH-038.md) | Custom 404 Page | `⬜` | — | Half-day; can bundle with 037 |
-| [KNOCH-039](tickets/KNOCH-039.md) | Contact Form — real submit + anti-spam (Vercel function + Turnstile + honeypot) | `⬜` | — | **Launch-blocker** |
+| [KNOCH-037](tickets/KNOCH-037.md) | SEO Basics — sitemap, robots, Article schema | `🔵` | `feature/KNOCH-037-seo-basics` | In review — PR #32 dev → test |
+| [KNOCH-038](tickets/KNOCH-038.md) | Custom 404 + 500 Pages | `🔵` | `feature/KNOCH-038-error-pages` | In review — bundled with 037 in PR #32 |
+| [KNOCH-039](tickets/KNOCH-039.md) | Contact form — real submit via Formspree + honeypot | `🔵` | `feature/KNOCH-039-formspree` | In review — bundled into PR #32 (last launch-blocker) |
 | [KNOCH-040](tickets/KNOCH-040.md) | Per-project SEO + Static `/project/<slug>` Routes | `⬜` | — | Post-launch deepening |
 
 ---
@@ -187,6 +187,70 @@ CMS layer (cuts across phases — wire each section after it is built):
 ## Changelog
 
 All modifications to this document and ticket files are logged here. Tester agent and code review feedback should be recorded as entries.
+
+---
+
+### 2026-05-07 — KNOCH-038 merged to dev + bundled into PR #32 — IN REVIEW
+
+**Action:** `feature/KNOCH-038-error-pages` merged into dev. Joins PR #32 dev → test alongside KNOCH-037. PR title + description updated to reflect both tickets.
+**Tickets affected:** KNOCH-038 (KNOCH-037 status unchanged — already in review)
+**Reason:** Implementation complete. PR #32 now bundles SEO basics (sitemap + robots + Article JSON-LD) + custom 404 / 500 error pages + the recent dev-only commits (Phase 5 SHIPPED bookkeeping, reference/ folder move, knochmedia.xyz → knoch.media domain swap). Header counts: In progress 1→0, In review 1→2.
+**Changes:**
+- KNOCH-038: Status 🔵 In progress → 🔵 In review.
+- Header counts: In progress 1→0, In review 1→2.
+
+**Requested by:** Enoch — bundle 037 + 038 + "different error pages for whatever error could happen"
+
+---
+
+### 2026-05-07 — KNOCH-038 started — 🔵 IN PROGRESS (bundling into PR #32)
+
+**Action:** Cut `feature/KNOCH-038-error-pages` from dev. Spec called for an optional 500 page; Enoch wanted both, so 500 is in scope alongside the 404.
+**Tickets affected:** KNOCH-038
+**Reason:** Two static error pages — `src/404.html` (auto-served by Vercel on any 404, preserves 404 status) and `src/500.html` (currently unwired, stages for KNOCH-039 to point its contact-form serverless function at on failure). Same chrome / footer / film-grain treatment as the rest of the site so the visitor never feels they've left the studio. Will bundle into the existing PR #32 alongside KNOCH-037.
+**Changes:**
+- KNOCH-038: Status ⬜ Open → 🔵 In progress; Branch column populated.
+- Header counts: Open 3→2, In progress 0→1.
+
+**Requested by:** Enoch — "different error pages for whatever error could happen"
+
+---
+
+### 2026-05-07 — KNOCH-037 PR opened — IN REVIEW
+
+**Action:** PR #32 opened dev → test. Awaiting QA gate.
+**Tickets affected:** KNOCH-037
+**Reason:** Implementation merged to dev. PR carries the SEO basics work plus the recent dev-only commits that hadn't shipped to test yet (Phase 5 SHIPPED bookkeeping, dashboard sync, reference/ folder move). Header counts: In progress 1→0, In review 0→1.
+
+**Requested by:** Enoch
+
+---
+
+### 2026-05-07 — KNOCH-037 started — 🔵 IN PROGRESS
+
+**Action:** Cut `feature/KNOCH-037-seo-basics` from dev to kick off Phase 6.
+**Tickets affected:** KNOCH-037
+**Reason:** First Phase 6 ticket — SEO basics layered on the per-page meta foundation from KNOCH-019. Sitemap + robots checked in to `src/public/` so Vite serves them at root; Article JSON-LD injected at runtime by `project-page.js` once the project is resolved from the URL `?id=` parameter.
+**Changes:**
+- KNOCH-037: Status ⬜ Open → 🔵 In progress; Branch column populated.
+- Header counts: Open 4→3, In progress 0→1.
+
+**Requested by:** Enoch — "do Phase 6 top to bottom"
+
+---
+
+### 2026-05-07 — Phase 5 shipped to main — 🚀 v0.5.0
+
+**Action:** PR #31 squash-merged test → main (commit 316ac93). Tag `v0.5.0` pushed; GitHub release published.
+**Tickets affected:** KNOCH-019, KNOCH-020, KNOCH-021, KNOCH-041
+**Reason:** All four Phase 5 tickets QA'd in test. Phase 5 covers Performance Optimization (KNOCH-019: WebP pipeline, per-page meta, GSAP fps cap, lazy-load rewrite), Responsive / Mobile Adaptations (KNOCH-020), Mobile Sustainable Mode (KNOCH-041: strip scroll-tied GSAP / image culling / hamburger close affordance), and Accessibility (KNOCH-021: WCAG 2.1 AA — skip link + main landmark, reduced-motion cascade, custom-cursor keyboard mode, video-lightbox aria-hidden, reel + tablist keyboard contracts, contact aria-required + step aria-live, plus the bonus `lenis.start()` resume in `scrollTo()` so chrome nav clicks work from inside wheel-paged sections).
+
+Ride-along bundled into the squash: CMS layer (KNOCH-024 / 025 / 027), liquid-glass mirror onto bottom timecode bar, divergent non-homepage glass triggers, budget tiers shifted to $1–3k / $3–5k / $5–8k / $8k+, phone number stripped, email switched to enoch@knoch.media, mobile testimonial section made fully static, and KNOCH-028 deferred bookkeeping.
+**Changes:**
+- KNOCH-019 / 020 / 021 / 041: Status ✅ / 🔵 → 🚀 Shipped.
+- Header counts: In review 1→0, Done 25→26. Phase tag in header bumped 1–4 → 1–5.
+
+**Requested by:** Enoch — "create the release for phase 5 and we can move on"
 
 ---
 

@@ -18,7 +18,7 @@ Build-time pre-rendered `/project/<slug>` routes with per-project og:image and A
 - [ ] New `scripts/render-projects.mjs` (or a Vite plugin) — reads `src/js/projects.js`, opens `src/project.html` as a template, and emits `dist/project/<slug>.html` for every project, each with:
   - Per-project `<title>`: `<title>{{project.title}} — Knoch Media</title>`
   - Per-project `<meta name="description">`: first sentence of `project.description` (truncated to ≤155 chars).
-  - Per-project canonical: `<link rel="canonical" href="https://knochmedia.xyz/project/{slug}">`.
+  - Per-project canonical: `<link rel="canonical" href="https://knoch.media/project/{slug}">`.
   - Per-project Open Graph: `og:title`, `og:description`, `og:url`, `og:image` (project cover, absolute URL).
   - Per-project Twitter card: same fields.
   - Per-project `Article` JSON-LD (replaces the runtime injection from KNOCH-037 — strictly faster).
