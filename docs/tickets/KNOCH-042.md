@@ -2,7 +2,7 @@
 
 > **Scope reduced 2026-05-07:** original scope included the homepage archive grid too, but Enoch confirmed the asymmetric homepage archive is curated/static-by-design and only the works page (`portfolio.html`) needs Sanity wiring. Archive stays hardcoded.
 
-## Status: IN REVIEW (PR #34)
+## Status: 🚀 SHIPPED — v0.7.1 (commit 5e03ab0)
 ## Priority: P1 (high — closes the loop on CMS workflow)
 ## Epic: EPIC-007 — Post-Launch CMS Coverage
 
