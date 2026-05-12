@@ -1,5 +1,12 @@
 # Knoch Photography Portfolio — Project Rules
 
+## Target Product
+This system operates on [knochmedia](https://github.com/eayanwale/knochmedia) — 
+a photography portfolio site at knoch.media
+
+Clone the product repo alongside this one:
+    git clone https://github.com/eayanwale/knochmedia.git ../knochmedia
+
 ## Project Overview
 Building a premium, Awwwards-level photography portfolio for Knoch Media (knoch.media).
 Two reference HTML mockups are in `reference/` (repo root) — the cinematic dark experience and the minimal Aperture concept. The folder lives outside `src/` so Vite never touches it; it's reference material in git, not part of the build.
